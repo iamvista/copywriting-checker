@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100" height="100" rx="20" fill="url(#bg-gradient)"/>
+
+  <!-- Checkmark icon -->
+  <path d="M 25 50 L 40 65 L 75 30"
+        stroke="white"
+        stroke-width="8"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Pencil icon -->
+  <g transform="translate(55, 55)">
+    <rect x="0" y="0" width="8" height="30" fill="#fbbf24" rx="2"/>
+    <polygon points="4,30 0,38 8,38" fill="#f59e0b"/>
+    <rect x="0" y="0" width="8" height="6" fill="#e5e7eb"/>
+  </g>
+</svg>

@@ -478,12 +478,12 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
             <span className="text-3xl">✉️</span>
           </div>
           <h3 className="text-2xl font-bold text-neutral-800 mb-3">
-            每週獲得更多文案技巧
+            想獲得更多文案技巧與 AI 應用秘技嗎？
           </h3>
           <p className="text-base text-neutral-600 max-w-2xl mx-auto leading-relaxed">
             訂閱 <span className="font-semibold text-primary">Vista 電子報</span>，每週收到實戰文案技巧、案例分析與內容行銷洞察。
             <br />
-            <span className="text-sm text-neutral-500 mt-2 inline-block">已有超過 10,000 位行銷人與創作者訂閱</span>
+            <span className="text-sm text-neutral-500 mt-2 inline-block">已有超過 15,500 位行銷人與創作者訂閱</span>
           </p>
         </div>
 

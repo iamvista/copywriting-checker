@@ -120,8 +120,8 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
       {/* Header - McKinsey Style */}
       <div className="card-section border-l-primary bg-gradient-to-br from-white to-neutral-cream/30">
         <div className="flex items-center justify-between mb-6 pb-4 border-b-2 border-neutral-sand">
-          <h2 className="text-3xl font-bold text-neutral-800">文案健檢報告</h2>
-          <div className="text-sm text-neutral-600">
+          <h2 className="text-3xl font-bold text-neutral-charcoal">文案健檢報告</h2>
+          <div className="text-sm text-neutral-slate">
             {new Date(result.timestamp).toLocaleDateString('zh-TW')}
           </div>
         </div>
@@ -141,12 +141,12 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
             {/* 分析的文案 */}
             <div className="flex-1 bg-neutral-sand/30 border border-neutral-stone rounded-lg p-5">
               <p className="font-semibold text-primary mb-3 text-sm uppercase tracking-wide">分析的文案</p>
-              <p className="whitespace-pre-wrap text-neutral-600 leading-relaxed text-sm lg:text-base">{result.analyzedText}</p>
+              <p className="whitespace-pre-wrap text-neutral-slate leading-relaxed text-sm lg:text-base">{result.analyzedText}</p>
             </div>
 
             {/* Social Share - 改為側邊欄 */}
             <div className="flex-shrink-0 w-full lg:w-auto">
-              <p className="text-xs text-neutral-600 mb-3 font-medium text-center lg:text-left">分享到社群</p>
+              <p className="text-xs text-neutral-slate mb-3 font-medium text-center lg:text-left">分享到社群</p>
               <div className="flex lg:flex-col justify-center lg:justify-start gap-2">
                 <button
                   onClick={() => handleShare('facebook')}
@@ -178,7 +178,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                 </button>
                 <button
                   onClick={() => handleShare('copy')}
-                  className="p-3 bg-white hover:bg-warning hover:text-white rounded-lg transition-all shadow-sm border border-neutral-stone flex items-center justify-center w-12 h-12"
+                  className="p-3 bg-white hover:bg-accent-bronze hover:text-white rounded-lg transition-all shadow-sm border border-neutral-stone flex items-center justify-center w-12 h-12"
                   title="複製分享連結"
                 >
                   <FiCopy className="text-lg" />
@@ -224,13 +224,13 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
       </div>
 
       {/* 文案金句 - 隨機顯示 */}
-      <div className="card-section border-l-primary bg-gradient-to-br from-primary/5 to-accent-teal/5">
+      <div className="card-section border-l-primary bg-gradient-to-br from-morandi-rose/20 to-morandi-mauve/20">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold text-neutral-800 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-neutral-charcoal flex items-center gap-2">
             <span>💡</span>
             <span>Vista 文案心法</span>
           </h3>
-          <p className="text-xs text-neutral-600">每次隨機顯示 · 共100條心法</p>
+          <p className="text-xs text-neutral-slate">每次隨機顯示 · 共100條心法</p>
         </div>
         <div className="grid md:grid-cols-2 gap-4">
           {randomWisdom.map((wisdom, index) => (
@@ -238,9 +238,9 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
               key={index}
               className="p-4 bg-neutral-cream border-l-4 border-l-primary rounded-lg hover:bg-white hover:border-l-primary-dark hover:shadow-md transition-all duration-200 cursor-default"
             >
-              <p className="text-sm text-neutral-600 leading-relaxed">
+              <p className="text-sm text-neutral-slate leading-relaxed">
                 <span className="font-bold text-primary">「{wisdom.quote}」</span><br />
-                <span className="text-neutral-800">{wisdom.explanation}</span>
+                <span className="text-neutral-charcoal">{wisdom.explanation}</span>
               </p>
             </div>
           ))}
@@ -249,7 +249,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
 
       {/* Summary Section - McKinsey Style */}
       <div className="card-section border-l-primary">
-        <h3 className="text-2xl font-bold text-neutral-800 mb-6 pb-3 border-b-2 border-neutral-sand flex items-center gap-2">
+        <h3 className="text-2xl font-bold text-neutral-charcoal mb-6 pb-3 border-b-2 border-neutral-sand flex items-center gap-2">
           <span>📋</span>
           <span>總結與建議</span>
         </h3>
@@ -347,7 +347,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                 <span className="text-3xl">🎓</span>
                 <div className="flex-1">
                   <h5 className="font-bold text-primary group-hover:text-primary-dark mb-1">內容力：打造品牌的超能力</h5>
-                  <p className="text-xs text-neutral-600">Hahow 線上課程｜品牌內容策略完整教學</p>
+                  <p className="text-xs text-neutral-slate">Hahow 線上課程｜品牌內容策略完整教學</p>
                 </div>
               </div>
             </a>
@@ -357,13 +357,13 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
               href="https://vista.im/copywriting-book"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 bg-white border-2 border-success/20 hover:border-success rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+              className="group p-4 bg-white border-2 border-accent-bronze/20 hover:border-accent-bronze rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <div className="flex items-start gap-3">
                 <span className="text-3xl">📖</span>
                 <div className="flex-1">
-                  <h5 className="font-bold text-success group-hover:text-success/80 mb-1">文案力就是你的鈔能力</h5>
-                  <p className="text-xs text-neutral-600">Vista 著作｜文案寫作實戰技巧與心法</p>
+                  <h5 className="font-bold text-accent-bronze group-hover:text-accent-bronze/80 mb-1">文案力就是你的鈔能力</h5>
+                  <p className="text-xs text-neutral-slate">Vista 著作｜文案寫作實戰技巧與心法</p>
                 </div>
               </div>
             </a>
@@ -373,13 +373,13 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
               href="https://vista.im/writing-book"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 bg-white border-2 border-info/20 hover:border-info rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+              className="group p-4 bg-white border-2 border-accent-burgundy/20 hover:border-accent-burgundy rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <div className="flex items-start gap-3">
                 <span className="text-3xl">✍️</span>
                 <div className="flex-1">
-                  <h5 className="font-bold text-info group-hover:text-info/80 mb-1">慢讀秒懂數位好文案</h5>
-                  <p className="text-xs text-neutral-600">Vista 著作｜用內容打造品牌影響力</p>
+                  <h5 className="font-bold text-accent-burgundy group-hover:text-accent-burgundy/80 mb-1">慢讀秒懂數位好文案</h5>
+                  <p className="text-xs text-neutral-slate">Vista 著作｜用內容打造品牌影響力</p>
                 </div>
               </div>
             </a>
@@ -395,7 +395,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                 <span className="text-3xl">🤖</span>
                 <div className="flex-1">
                   <h5 className="font-bold text-accent-amber group-hover:text-accent-amber/80 mb-1">1分鐘驚豔ChatGPT爆款文案寫作聖經</h5>
-                  <p className="text-xs text-neutral-600">Vista 著作｜AI 時代的高效提問技巧</p>
+                  <p className="text-xs text-neutral-slate">Vista 著作｜AI 時代的高效提問技巧</p>
                 </div>
               </div>
             </a>
@@ -405,13 +405,13 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
               href="https://vista.im/ai-book"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 bg-white border-2 border-accent-teal/20 hover:border-accent-teal rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+              className="group p-4 bg-white border-2 border-accent-olive/20 hover:border-accent-olive rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <div className="flex items-start gap-3">
                 <span className="text-3xl">🤖</span>
                 <div className="flex-1">
-                  <h5 className="font-bold text-accent-teal group-hover:text-accent-teal/80 mb-1">ChatGPT 提問課</h5>
-                  <p className="text-xs text-neutral-600">Vista 著作｜AI 提問技巧與實戰應用</p>
+                  <h5 className="font-bold text-accent-olive group-hover:text-accent-olive/80 mb-1">ChatGPT 提問課</h5>
+                  <p className="text-xs text-neutral-slate">Vista 著作｜AI 提問技巧與實戰應用</p>
                 </div>
               </div>
             </a>
@@ -421,13 +421,13 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
               href="https://www.empower.tw/p/consultation.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-4 bg-white border-2 border-accent-purple/40 hover:border-accent-purple rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+              className="group p-4 bg-white border-2 border-morandi-mauve/40 hover:border-morandi-mauve rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <div className="flex items-start gap-3">
                 <span className="text-3xl">💬</span>
                 <div className="flex-1">
-                  <h5 className="font-bold text-accent-purple group-hover:text-accent-purple mb-1">Vista 相談室</h5>
-                  <p className="text-xs text-neutral-600">一對一諮詢服務｜文案與內容行銷顧問</p>
+                  <h5 className="font-bold text-morandi-mauve group-hover:text-morandi-taupe mb-1">Vista 相談室</h5>
+                  <p className="text-xs text-neutral-slate">一對一諮詢服務｜文案與內容行銷顧問</p>
                 </div>
               </div>
             </a>
@@ -437,7 +437,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
 
       {/* Detailed Analysis */}
       <div className="space-y-4">
-        <h3 className="text-2xl font-bold text-neutral-800 mb-4 pb-3 border-b-2 border-neutral-sand">詳細分析</h3>
+        <h3 className="text-2xl font-bold text-neutral-charcoal mb-4 pb-3 border-b-2 border-neutral-sand">詳細分析</h3>
 
         <DimensionDetail
           title="FAB 法則"

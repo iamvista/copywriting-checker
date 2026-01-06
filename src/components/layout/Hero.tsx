@@ -4,7 +4,7 @@ export const Hero: FC = () => {
   return (
     <section className="text-center py-8 lg:py-12 mb-6 lg:mb-8 px-4">
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 lg:mb-4">
-        30 秒檢測您的文案吸引力
+        30 秒檢測您的文案吸引力 ✨
       </h2>
       <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-4 lg:mb-6 max-w-2xl mx-auto px-4">
         基於 Vista 的多年專業教學經驗，分析您的文案並提供具體改善建議

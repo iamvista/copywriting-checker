@@ -9,9 +9,9 @@ export default {
       colors: {
         // 現代專業配色方案 - 深邃有力
         primary: {
-          DEFAULT: '#8B4049', // 深酒紅（專業、權威）
-          light: '#A85C66',
-          dark: '#6B2F36',
+          DEFAULT: '#1e40af', // 寶藍色（專業、信任）
+          light: '#3b82f6',
+          dark: '#1e3a8a',
         },
         success: {
           DEFAULT: '#059669', // 深翠綠（成功、正面）

@@ -425,13 +425,6 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                   <div className="flex items-start gap-3">
                     <span className="text-success text-xl flex-shrink-0">✓</span>
                     <div>
-                      <p className="font-semibold text-neutral-800">Vista 親自批改回饋</p>
-                      <p className="text-sm text-neutral-600">每月批改你的品牌故事作業（超值！）</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-success text-xl flex-shrink-0">✓</span>
-                    <div>
                       <p className="font-semibold text-neutral-800">實戰課後作業</p>
                       <p className="text-sm text-neutral-600">撰寫貴公司專屬品牌故事，邊學邊做</p>
                     </div>

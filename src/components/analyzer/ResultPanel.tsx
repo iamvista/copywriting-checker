@@ -223,8 +223,8 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
         />
       </div>
 
-      {/* 免費課程 CTA - 僅在分數 < 40 時顯示 */}
-      {result.totalScore < 40 && (
+      {/* 免費課程 CTA - 僅在分數 < 35 時顯示 */}
+      {result.totalScore < 35 && (
         <div className="card-section border-l-warning bg-gradient-to-br from-warning/10 via-primary/5 to-success/5">
           <div className="text-center mb-6">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-warning/20 rounded-full mb-4">
@@ -349,6 +349,153 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
             <p className="text-sm text-neutral-600 max-w-2xl mx-auto leading-relaxed">
               💬 <span className="font-semibold">已有 4,200+ 位學員</span>透過這堂課打好文案基礎，
               平均在 2 週內將文案分數提升到 70 分以上。你也可以！
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* 付費入門課程 CTA - 35-59 分顯示 */}
+      {result.totalScore >= 35 && result.totalScore < 60 && (
+        <div className="card-section border-l-primary bg-gradient-to-br from-primary/5 via-accent-teal/5 to-success/5">
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-4">
+              <span className="text-4xl">🚀</span>
+            </div>
+            <h3 className="text-2xl lg:text-3xl font-bold text-neutral-800 mb-3">
+              你的文案有潛力，只差一個關鍵技巧！
+            </h3>
+            <div className="inline-block bg-white px-6 py-3 rounded-full shadow-md mb-4">
+              <p className="text-lg font-bold text-neutral-700">
+                你的分數：<span className="text-2xl text-primary mx-2">{result.totalScore}</span>分
+              </p>
+            </div>
+            <p className="text-base lg:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed mb-2">
+              這個分數代表你已經有基礎，但還缺少<span className="font-bold text-primary">「讓人記住」</span>的關鍵元素。
+            </p>
+            <p className="text-base lg:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
+              大多數人在這階段的突破點是：<span className="font-bold text-warning">學會說一個好故事</span>。
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-6 lg:p-8 border-2 border-primary/20">
+              <div className="text-center mb-6">
+                <h4 className="text-2xl font-bold text-neutral-800 mb-2">
+                  品牌故事行銷學：用吸睛文案打造企業影響力
+                </h4>
+                <p className="text-neutral-600 text-sm">
+                  Vista 親授 · 2小時57分完整課程
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="space-y-4">
+                  <h5 className="font-bold text-lg text-neutral-800 mb-3 flex items-center gap-2">
+                    <span className="text-primary">📚</span>
+                    <span>為什麼要學品牌故事？</span>
+                  </h5>
+                  <div className="flex items-start gap-3">
+                    <span className="text-warning text-xl flex-shrink-0">💡</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">好產品不夠，要會說故事</p>
+                      <p className="text-sm text-neutral-600">光開發好產品還不夠，文字才能傳達理念與價值</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-warning text-xl flex-shrink-0">🎯</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">連結消費者的關鍵</p>
+                      <p className="text-sm text-neutral-600">用心撰寫的品牌故事能加深認知印象</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-warning text-xl flex-shrink-0">✨</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">真誠 {'>'}  浮誇辭藻</p>
+                      <p className="text-sm text-neutral-600">寫出有感染力的篇章，產生共鳴和行動</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <h5 className="font-bold text-lg text-neutral-800 mb-3 flex items-center gap-2">
+                    <span className="text-success">🎁</span>
+                    <span>課程獨家價值</span>
+                  </h5>
+                  <div className="flex items-start gap-3">
+                    <span className="text-success text-xl flex-shrink-0">✓</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">Vista 親自批改回饋</p>
+                      <p className="text-sm text-neutral-600">每月批改你的品牌故事作業（超值！）</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-success text-xl flex-shrink-0">✓</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">實戰課後作業</p>
+                      <p className="text-sm text-neutral-600">撰寫貴公司專屬品牌故事，邊學邊做</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-success text-xl flex-shrink-0">✓</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">終身觀看權限</p>
+                      <p className="text-sm text-neutral-600">近 3 小時課程可重複複習</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-success text-xl flex-shrink-0">✓</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">打造專屬感故事</p>
+                      <p className="text-sm text-neutral-600">共同打磨最具品牌特色的內容</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-primary/5 to-success/5 rounded-xl p-6 mb-6 border-2 border-primary/20">
+                <div className="text-center">
+                  <p className="text-sm text-neutral-600 mb-2">課程投資</p>
+                  <div className="flex items-center justify-center gap-4">
+                    <span className="text-3xl font-bold text-primary">NT$ 1,800</span>
+                    <span className="text-neutral-500">/ 終身觀看</span>
+                  </div>
+                  <p className="text-xs text-neutral-500 mt-3">
+                    ⏰ 平均每分鐘課程成本僅 $10，Vista 親自批改更是無價
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="text-center">
+                  <a
+                    href="https://www.worker360.com.tw/video/DiT000413"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-accent-teal text-white text-lg font-bold rounded-xl hover:from-primary-dark hover:to-accent-teal transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <span>📖</span>
+                    <span>立即查看課程詳情</span>
+                    <span>→</span>
+                  </a>
+                  <p className="text-sm text-neutral-500 mt-3">
+                    💬 點擊查看完整課程大綱與學員評價
+                  </p>
+                </div>
+
+                <div className="bg-warning/10 rounded-lg p-4 border border-warning/30">
+                  <p className="text-center text-sm text-neutral-700">
+                    <span className="font-bold text-warning">💎 Vista 特別提醒：</span>
+                    「傳遞品牌理念，更需要好老師的幫忙。讓 Vista 親自為你的品牌故事健檢！」
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 text-center">
+            <p className="text-sm text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+              🎯 這堂課特別適合：想為品牌/產品建立獨特故事的創業者、行銷人、品牌經理
             </p>
           </div>
         </div>

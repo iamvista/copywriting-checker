@@ -1,0 +1,375 @@
+import { AnalysisResult, DimensionScore } from '@/types/analyzer.types'
+
+/**
+ * Vista 文案分析引擎 2.0
+ * 基於 Vista Cheng 的核心方法論：
+ * - FAB 銷售法則（最核心）
+ * - 痛點導向
+ * - 以人為本
+ * - 喚起共鳴
+ */
+
+// ============================================
+// 一、FAB 完整度分析（30分）- Vista 最核心的方法論
+// ============================================
+
+interface FABScore {
+  feature: number // F - 特性（10分）
+  advantage: number // A - 優勢（10分）
+  benefit: number // B - 利益（10分）
+  totalScore: number
+  feedback: string[]
+  suggestions: string[]
+}
+
+function analyzeFAB(text: string): FABScore {
+  const feedback: string[] = []
+  const suggestions: string[] = []
+  let featureScore = 0
+  let advantageScore = 0
+  let benefitScore = 0
+
+  // F - Feature（特性/功能）檢測
+  const featureKeywords = ['搭載', '採用', '功能', '特色', '規格', '配備', '設計', '技術', '材質', '成分']
+  const hasFeature = featureKeywords.some(keyword => text.includes(keyword))
+
+  if (hasFeature || /[具包]?[有備]/.test(text)) {
+    featureScore = 10
+    feedback.push('✓ Feature（特性）：已說明產品「是什麼」、「有什麼」')
+  } else {
+    featureScore = 0
+    feedback.push('✗ Feature（特性）：缺少產品特性說明')
+    suggestions.push('Vista 建議｜Feature：請先說明產品的基本特性，例如「搭載 A17 Pro 晶片」、「採用天然成分」')
+  }
+
+  // A - Advantage（優勢）檢測
+  const advantageKeywords = ['獨家', '唯一', '首創', '領先', '優於', '更', '特別', '專屬', '獨特', '業界', '市場', '同級']
+  const hasAdvantage = advantageKeywords.some(keyword => text.includes(keyword))
+  const hasComparison = /比|較|勝過/.test(text)
+
+  if (hasAdvantage || hasComparison) {
+    advantageScore = 10
+    feedback.push('✓ Advantage（優勢）：已說明與競品的差異')
+  } else {
+    advantageScore = 0
+    feedback.push('✗ Advantage（優勢）：未說明為什麼選你而非競品')
+    suggestions.push('Vista 建議｜Advantage：請說明產品的獨特優勢，例如「業界唯一」、「比傳統方法快3倍」')
+  }
+
+  // B - Benefit（利益/效益）檢測 - 最重要！
+  const benefitKeywords = ['讓你', '幫助你', '使你', '讓您', '幫您', '節省', '提升', '增加', '減少', '避免', '解決', '改善', '不再', '無需']
+  const hasBenefit = benefitKeywords.some(keyword => text.includes(keyword))
+  const hasOutcome = /可以|能夠|將會|就能/.test(text)
+
+  if (hasBenefit || hasOutcome) {
+    benefitScore = 10
+    feedback.push('✓ Benefit（利益）：已說明「這對我有什麼好處」⭐')
+  } else {
+    benefitScore = 0
+    feedback.push('✗ Benefit（利益）：缺少利益說明 ⚠️ 這是最重要的！')
+    suggestions.push('Vista 核心提醒｜Benefit：這是最重要的！請明確說明「這對我有什麼好處」，例如「讓你工作更有效率」、「幫你節省50%時間」。記住：Features tell, but benefits sell（功能告知，利益才賣）')
+  }
+
+  const totalScore = featureScore + advantageScore + benefitScore
+
+  // 根據 FAB 完整度給出整體建議
+  if (totalScore === 30) {
+    suggestions.push('🎉 完美！您的文案符合 Vista 的 FAB 法則')
+  } else if (totalScore >= 20) {
+    suggestions.push('👍 不錯！補強缺少的部分，文案會更有說服力')
+  } else {
+    suggestions.push('⚠️ 建議參考 FAB 法則重新組織文案：先說 Feature（是什麼）→ Advantage（為何選我）→ Benefit（有什麼好處）')
+  }
+
+  return {
+    feature: featureScore,
+    advantage: advantageScore,
+    benefit: benefitScore,
+    totalScore,
+    feedback,
+    suggestions
+  }
+}
+
+// ============================================
+// 二、受眾共鳴度分析（25分）- Vista 超級強調
+// ============================================
+
+function analyzeAudienceResonance(text: string): DimensionScore {
+  let score = 0
+  const feedback: string[] = []
+  const suggestions: string[] = []
+
+  // 2.1 目標受眾明確性（10分）
+  const audienceKeywords = ['你', '您', '創業者', '主管', '家長', '學生', '上班族', '老闆', '經理', '行銷人', '設計師', '工程師', '業務']
+  const hasAudience = audienceKeywords.some(keyword => text.includes(keyword))
+  const hasSpecificAudience = /身為|作為|如果你是/.test(text)
+
+  if (hasSpecificAudience) {
+    score += 10
+    feedback.push('✓ 目標受眾非常明確（例如「身為行銷人員的你」）')
+  } else if (hasAudience) {
+    score += 5
+    feedback.push('⚠️ 有提到受眾但不夠明確')
+    suggestions.push('Vista 建議｜受眾：更明確地指出目標受眾，例如「身為創業者的你」、「如果你是行銷主管」')
+  } else {
+    feedback.push('✗ 目標受眾不明確')
+    suggestions.push('Vista 提醒｜受眾：寫作的第一課，不是起承轉合，而是認識讀者、針對讀者發表意見。請明確你在對誰說話！')
+  }
+
+  // 2.2 痛點呼應（15分）- Vista 的「痛點導向」核心
+  const painKeywords = ['擔心', '困擾', '害怕', '煩惱', '焦慮', '問題', '難題', '挑戰', '痛點']
+  const painQuestions = ['是否', '還在', '總是', '常常', '每次', '有沒有']
+  const hasPainKeyword = painKeywords.some(keyword => text.includes(keyword))
+  const hasPainQuestion = painQuestions.some(q => text.includes(q))
+  const hasScenario = /你是否|還在.*嗎|總是.*嗎/.test(text)
+
+  if (hasScenario && hasPainKeyword) {
+    score += 15
+    feedback.push('✓ 痛點描述非常具體，讓讀者產生「對，就是在說我！」的感覺')
+  } else if (hasPainQuestion || hasPainKeyword) {
+    score += 8
+    feedback.push('⚠️ 有提到痛點但不夠具體')
+    suggestions.push('Vista 建議｜痛點：描述更具體的痛點情境，例如「你是否常常花3小時寫文案，卻只有3個人按讚？」讓讀者立刻產生共鳴')
+  } else {
+    feedback.push('✗ 缺少痛點描述')
+    suggestions.push('Vista 核心提醒｜痛點導向：這是 Vista 最強調的！先談痛點再給解方。用問句描述具體困擾場景，讓讀者覺得「對，就是在說我！」')
+  }
+
+  return { score, feedback, suggestions }
+}
+
+// ============================================
+// 三、行動呼籲（CTA）設計（20分）
+// ============================================
+
+function analyzeCallToAction(text: string): DimensionScore {
+  let score = 0
+  const feedback: string[] = []
+  const suggestions: string[] = []
+
+  // 3.1 CTA 明確性（10分）
+  const ctaKeywords = ['立即', '馬上', '現在', '點擊', '報名', '購買', '下載', '訂閱', '加入', '開始', '了解更多', '前往']
+  const hasCTA = ctaKeywords.some(keyword => text.includes(keyword))
+
+  if (hasCTA) {
+    score += 10
+    feedback.push('✓ 有明確的行動呼籲')
+  } else {
+    feedback.push('✗ 缺少明確的行動呼籲')
+    suggestions.push('Vista 建議｜CTA：加入明確的下一步指示，例如「立即報名」、「馬上下載」、「點擊了解更多」')
+  }
+
+  // 3.2 急迫感（5分）
+  const urgencyKeywords = ['限時', '最後', '倒數', '今天', '本週', '僅剩', '截止', '名額有限', '售完為止', '錯過', '再等']
+  const hasUrgency = urgencyKeywords.some(keyword => text.includes(keyword))
+
+  if (hasUrgency) {
+    score += 5
+    feedback.push('✓ 有營造急迫感')
+  } else {
+    feedback.push('✗ 缺少急迫感')
+    suggestions.push('Vista 建議｜急迫感：加入時間限制，例如「限時3天」、「僅剩20個名額」，促使讀者立即行動')
+  }
+
+  // 3.3 降低門檻（5分）
+  const lowBarrierKeywords = ['免費', '一鍵', '30秒', '簡單', '輕鬆', '快速', '只要', '不滿意退費', '免費試用', '零風險']
+  const hasLowBarrier = lowBarrierKeywords.some(keyword => text.includes(keyword))
+
+  if (hasLowBarrier) {
+    score += 5
+    feedback.push('✓ 有降低行動門檻')
+  } else {
+    feedback.push('✗ 未降低行動門檻')
+    suggestions.push('Vista 建議｜降低門檻：讓讀者更容易採取行動，例如「免費試用」、「30秒完成」、「不滿意全額退費」')
+  }
+
+  return { score, feedback, suggestions }
+}
+
+// ============================================
+// 四、標題吸引力（15分）- Vista 的六大元素
+// ============================================
+
+function analyzeTitleAppeal(text: string): DimensionScore {
+  let score = 0
+  const feedback: string[] = []
+  const suggestions: string[] = []
+  const elements: string[] = []
+
+  // 1. 問題（2.5分）
+  const hasQuestion = /[？?]/.test(text)
+  if (hasQuestion) {
+    score += 2.5
+    elements.push('問題')
+    feedback.push('✓ 使用疑問句（引發好奇心）')
+  }
+
+  // 2. 數據（2.5分）
+  const hasNumbers = /\d+/.test(text)
+  if (hasNumbers) {
+    score += 2.5
+    elements.push('數據')
+    feedback.push('✓ 包含具體數字（提升可信度）')
+  }
+
+  // 3. 名人/權威（2.5分）
+  const authorityKeywords = ['專家', '教授', '博士', '老師', '大師', '權威', '認證', '官方']
+  const hasAuthority = authorityKeywords.some(keyword => text.includes(keyword))
+  if (hasAuthority) {
+    score += 2.5
+    elements.push('名人')
+    feedback.push('✓ 有權威/名人背書')
+  }
+
+  // 4. 故事（2.5分）
+  const storyKeywords = ['從', '到', '如何', '經歷', '故事', '案例', '見證']
+  const hasStory = storyKeywords.some(keyword => text.includes(keyword))
+  if (hasStory) {
+    score += 2.5
+    elements.push('故事')
+    feedback.push('✓ 有故事性')
+  }
+
+  // 5. 利益（2.5分）
+  const benefitKeywords = ['讓你', '幫你', '提升', '學會', '掌握', '獲得', '節省']
+  const hasBenefit = benefitKeywords.some(keyword => text.includes(keyword))
+  if (hasBenefit) {
+    score += 2.5
+    elements.push('利益')
+    feedback.push('✓ 直接點出利益')
+  }
+
+  // 6. 緊迫感（2.5分）
+  const urgencyKeywords = ['限時', '最後', '倒數', '今天', '僅剩', '名額']
+  const hasUrgency = urgencyKeywords.some(keyword => text.includes(keyword))
+  if (hasUrgency) {
+    score += 2.5
+    elements.push('緊迫感')
+    feedback.push('✓ 營造緊迫感')
+  }
+
+  // 整體評估
+  if (elements.length >= 3) {
+    feedback.push(`🎉 優秀！同時具備 ${elements.length} 個 Vista 標題元素：${elements.join('、')}`)
+  } else if (elements.length > 0) {
+    feedback.push(`已具備：${elements.join('、')}`)
+    const missing = ['問題', '數據', '名人', '故事', '利益', '緊迫感'].filter(e => !elements.includes(e))
+    suggestions.push(`Vista 建議｜標題：可考慮加入：${missing.slice(0, 3).join('、')}`)
+  } else {
+    feedback.push('✗ 缺少吸引力元素')
+    suggestions.push('Vista 建議｜標題：根據 Vista 的六大元素，建議加入：問題、數據、利益中的至少一項')
+  }
+
+  return { score, feedback, suggestions }
+}
+
+// ============================================
+// 五、可讀性與表達（10分）
+// ============================================
+
+function analyzeReadability(text: string): DimensionScore {
+  let score = 0
+  const feedback: string[] = []
+  const suggestions: string[] = []
+
+  // 句子長度
+  const sentences = text.split(/[。！？!?]/).filter(s => s.trim().length > 0)
+  const avgSentenceLength = sentences.length > 0 ? text.length / sentences.length : text.length
+
+  if (avgSentenceLength < 25) {
+    score += 5
+    feedback.push('✓ 句子長度適中（易於閱讀）')
+  } else if (avgSentenceLength < 40) {
+    score += 3
+    feedback.push('⚠️ 句子稍長')
+    suggestions.push('建議：將長句拆分為短句，每句不超過25字')
+  } else {
+    feedback.push('✗ 句子過長')
+    suggestions.push('建議：句子過長會影響閱讀，請拆分為多個短句')
+  }
+
+  // 分段與格式
+  const hasLineBreaks = /\n/.test(text)
+  if (hasLineBreaks || text.length < 100) {
+    score += 5
+    feedback.push('✓ 格式清晰，有適當分段')
+  } else if (text.length < 200) {
+    score += 3
+    feedback.push('⚠️ 建議增加分段')
+    suggestions.push('建議：每3-5行就分段，保持視覺舒適')
+  } else {
+    feedback.push('✗ 缺少分段')
+    suggestions.push('建議：文案較長時，請適當分段並留白，提升可讀性')
+  }
+
+  return { score, feedback, suggestions }
+}
+
+// ============================================
+// 主要分析函數 - 整合所有維度
+// ============================================
+
+export async function analyzeCopywritingVista(text: string): Promise<AnalysisResult> {
+  // 模擬分析延遲
+  await new Promise(resolve => setTimeout(resolve, 1500))
+
+  // 執行各維度分析
+  const fabAnalysis = analyzeFAB(text)
+  const audienceAnalysis = analyzeAudienceResonance(text)
+  const ctaAnalysis = analyzeCallToAction(text)
+  const titleAnalysis = analyzeTitleAppeal(text)
+  const readabilityAnalysis = analyzeReadability(text)
+
+  // 計算總分（加權平均）
+  const totalScore = Math.round(
+    fabAnalysis.totalScore * 0.3 + // FAB 30%
+    audienceAnalysis.score * 0.25 + // 受眾共鳴 25%
+    ctaAnalysis.score * 0.20 + // CTA 20%
+    titleAnalysis.score * 0.15 + // 標題 15%
+    readabilityAnalysis.score * 0.10 // 可讀性 10%
+  )
+
+  // 評級
+  let grade: AnalysisResult['grade']
+  if (totalScore >= 80) {
+    grade = 'excellent'
+  } else if (totalScore >= 60) {
+    grade = 'good'
+  } else if (totalScore >= 40) {
+    grade = 'needsImprovement'
+  } else {
+    grade = 'needsRewrite'
+  }
+
+  // 組裝結果（將 FAB 拆分為三個維度以適配現有 UI）
+  const dimensions = {
+    titleAppeal: {
+      score: fabAnalysis.feature * 10, // Feature 轉換為 0-100 分
+      feedback: fabAnalysis.feedback.filter(f => f.includes('Feature')),
+      suggestions: fabAnalysis.suggestions.filter(s => s.includes('Feature'))
+    },
+    consumerInsight: audienceAnalysis,
+    callToAction: ctaAnalysis,
+    readability: readabilityAnalysis,
+    valueProposition: {
+      score: ((fabAnalysis.advantage + fabAnalysis.benefit) / 2) * 10, // A+B 平均轉換為 0-100 分
+      feedback: [
+        ...fabAnalysis.feedback.filter(f => f.includes('Advantage') || f.includes('Benefit')),
+        ...titleAnalysis.feedback
+      ],
+      suggestions: [
+        ...fabAnalysis.suggestions.filter(s => s.includes('Advantage') || s.includes('Benefit')),
+        ...titleAnalysis.suggestions
+      ]
+    }
+  }
+
+  return {
+    totalScore,
+    grade,
+    dimensions,
+    analyzedText: text,
+    timestamp: new Date(),
+  }
+}

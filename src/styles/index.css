@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #FAF8F3;
+    color: #5A5550;
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: #8B4049;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+
+  .btn-primary:hover {
+    background-color: #6B2F36;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+
+  .btn-secondary {
+    background-color: #EDE8E0;
+    color: #8B4049;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    border: 1px solid #D4CEC4;
+  }
+
+  .btn-secondary:hover {
+    background-color: #D4CEC4;
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    border: 1px solid #EDE8E0;
+    padding: 1.5rem;
+  }
+
+  /* McKinsey-style section card */
+  .card-section {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    border-left-width: 4px;
+    padding: 1.5rem;
+  }
+}
+
+/* Print Styles for PDF Export */
+@media print {
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Hide action buttons and navigation */
+  button,
+  a[href*="empower.tw"] {
+    display: none !important;
+  }
+
+  /* Optimize cards for print */
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb;
+    page-break-inside: avoid;
+  }
+
+  /* Ensure proper spacing between sections */
+  .space-y-6 > * {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .space-y-4 > * {
+    margin-bottom: 1rem !important;
+  }
+
+  /* Convert gradient backgrounds to solid for print */
+  .bg-gradient-to-r {
+    background: white !important;
+    border: 2px solid #3b82f6 !important;
+  }
+
+  /* Ensure text colors are print-friendly */
+  .text-gray-900,
+  .text-gray-800,
+  .text-gray-700 {
+    color: #000 !important;
+  }
+
+  .text-green-700,
+  .text-green-800 {
+    color: #15803d !important;
+  }
+
+  .text-orange-700,
+  .text-orange-800 {
+    color: #c2410c !important;
+  }
+
+  .text-blue-700,
+  .text-blue-800 {
+    color: #1e40af !important;
+  }
+
+  .text-indigo-700,
+  .text-indigo-800 {
+    color: #3730a3 !important;
+  }
+
+  /* Prevent page breaks inside important sections */
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+
+  ul, ol {
+    page-break-inside: avoid;
+  }
+
+  /* Ensure emojis render properly */
+  .text-6xl,
+  .text-5xl,
+  .text-3xl,
+  .text-2xl {
+    line-height: 1.2 !important;
+  }
+
+  /* Optimize progress bars and scores for print */
+  .bg-primary {
+    background-color: #2563eb !important;
+  }
+
+  /* Remove transitions and animations */
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

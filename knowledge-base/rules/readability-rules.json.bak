@@ -1,0 +1,249 @@
+{
+  "name": "可讀性規則",
+  "description": "評估文案的閱讀難易度，確保目標受眾能輕鬆理解",
+  "version": "1.0",
+  "criteria": {
+    "sentence_length": {
+      "name": "句子長度",
+      "description": "句子不宜過長，避免讀者閱讀疲勞",
+      "weight": 25,
+      "rules": {
+        "ideal": {
+          "max_length": 25,
+          "score": 25,
+          "message": "✓ 句子長度適中，易於閱讀"
+        },
+        "acceptable": {
+          "max_length": 35,
+          "score": 15,
+          "message": "⚠️ 部分句子略長，建議精簡"
+        },
+        "too_long": {
+          "max_length": 999,
+          "score": 0,
+          "message": "✗ 句子過長（超過35字），建議拆分成多個短句"
+        }
+      },
+      "tips": [
+        "平均句長建議在 25 字以內",
+        "過長的句子容易讓讀者失焦",
+        "善用標點符號斷句"
+      ]
+    },
+    "paragraph_structure": {
+      "name": "段落結構",
+      "description": "段落長度適中，有適當分段",
+      "weight": 25,
+      "rules": {
+        "ideal_lines": {
+          "range": [3, 5],
+          "score": 25,
+          "message": "✓ 段落長度適中（3-5行）"
+        },
+        "acceptable_lines": {
+          "range": [6, 8],
+          "score": 15,
+          "message": "⚠️ 段落略長，建議適當分段"
+        },
+        "too_long": {
+          "min_lines": 9,
+          "score": 5,
+          "message": "✗ 段落過長（超過8行），閱讀體驗不佳"
+        },
+        "too_short": {
+          "max_lines": 2,
+          "score": 10,
+          "message": "段落過短，可考慮合併或補充內容"
+        }
+      },
+      "tips": [
+        "一個段落一個重點",
+        "段落間要有留白",
+        "適時使用分段讓內容更有層次"
+      ]
+    },
+    "punctuation": {
+      "name": "標點符號使用",
+      "description": "善用標點符號幫助閱讀節奏",
+      "weight": 20,
+      "elements": {
+        "comma": {
+          "name": "逗點 (,)",
+          "usage": "停頓、區隔重點",
+          "example": "快速、簡單、有效"
+        },
+        "colon": {
+          "name": "冒號 (:)",
+          "usage": "說明、引導",
+          "example": "重點來了：限時3天"
+        },
+        "exclamation": {
+          "name": "驚嘆號 (!)",
+          "usage": "強調、表達情緒",
+          "example": "太划算了！",
+          "warning": "不宜過度使用"
+        },
+        "dash": {
+          "name": "破折號 (——)",
+          "usage": "補充說明、轉折",
+          "example": "最新優惠——買一送一"
+        },
+        "ellipsis": {
+          "name": "刪節號 (...)",
+          "usage": "引發懸念",
+          "example": "你絕對想不到的結果..."
+        }
+      },
+      "rules": {
+        "appropriate_use": {
+          "score": 20,
+          "message": "✓ 標點符號使用得當"
+        },
+        "excessive_exclamation": {
+          "threshold": 3,
+          "score": 10,
+          "message": "⚠️ 驚嘆號過多，建議減少使用"
+        },
+        "lack_of_punctuation": {
+          "score": 5,
+          "message": "✗ 缺少標點符號，句子不易斷句"
+        }
+      }
+    },
+    "jargon": {
+      "name": "專業術語",
+      "description": "避免過多專業術語，或要有白話文解釋",
+      "weight": 15,
+      "common_jargon": [
+        "SEO", "ROI", "KPI", "CTA", "UX", "UI",
+        "API", "SDK", "SaaS", "B2B", "B2C",
+        "轉換率", "流量", "曝光", "觸及"
+      ],
+      "rules": {
+        "minimal_jargon": {
+          "threshold": 2,
+          "score": 15,
+          "message": "✓ 專業術語使用適當"
+        },
+        "moderate_jargon": {
+          "threshold": 5,
+          "score": 8,
+          "message": "⚠️ 專業術語較多，建議加上白話文解釋"
+        },
+        "excessive_jargon": {
+          "threshold": 999,
+          "score": 0,
+          "message": "✗ 專業術語過多，一般讀者可能難以理解"
+        }
+      },
+      "tips": [
+        "專業術語要有白話文解釋",
+        "例如：「運用 AIDA 模型」→「用4步驟吸引顧客：引起注意→產生興趣→激發慾望→促成行動」",
+        "目標受眾是一般消費者時，盡量避免使用術語"
+      ]
+    },
+    "whitespace": {
+      "name": "留白與分段",
+      "description": "適當的留白讓內容更易讀",
+      "weight": 15,
+      "rules": {
+        "good_spacing": {
+          "score": 15,
+          "message": "✓ 有適當留白，閱讀舒適"
+        },
+        "dense_text": {
+          "score": 5,
+          "message": "✗ 內容過於密集，建議增加段落間距或使用列表"
+        }
+      },
+      "tips": [
+        "善用項目符號 (•) 或編號列表",
+        "重要訊息可以獨立成段",
+        "適時使用空行分隔不同主題"
+      ]
+    }
+  },
+  "formatting_recommendations": {
+    "lists": {
+      "name": "列表使用",
+      "when_to_use": "列舉多個項目時",
+      "benefits": [
+        "易於掃視",
+        "結構清晰",
+        "便於記憶"
+      ],
+      "examples": [
+        "課程包含：\n• 文案寫作基礎\n• FAB 法則應用\n• 實戰案例分析"
+      ]
+    },
+    "emphasis": {
+      "name": "強調重點",
+      "techniques": [
+        "使用粗體標示關鍵詞",
+        "用不同顏色凸顯重要訊息",
+        "重要內容獨立成段"
+      ]
+    },
+    "headings": {
+      "name": "標題分層",
+      "tips": [
+        "使用副標題分段",
+        "讓讀者可以快速掃視",
+        "每個標題代表一個重點"
+      ]
+    }
+  },
+  "scoring_algorithm": {
+    "description": "根據各項標準的得分加總",
+    "max_score": 100,
+    "calculation": "句子長度(25分) + 段落結構(25分) + 標點符號(20分) + 專業術語(15分) + 留白分段(15分)"
+  },
+  "grade_ranges": {
+    "excellent": {
+      "range": [80, 100],
+      "label": "優秀",
+      "description": "文案易讀性極佳，讀者能輕鬆理解"
+    },
+    "good": {
+      "range": [60, 79],
+      "label": "良好",
+      "description": "可讀性不錯，略作調整會更好"
+    },
+    "fair": {
+      "range": [40, 59],
+      "label": "待改進",
+      "description": "閱讀略顯吃力，建議優化句子和段落"
+    },
+    "poor": {
+      "range": [0, 39],
+      "label": "需重寫",
+      "description": "可讀性差，讀者容易放棄閱讀"
+    }
+  },
+  "accessibility_tips": [
+    "行動裝置閱讀：句子和段落要更短",
+    "年長讀者：字體要大一點，對比要明顯",
+    "快速瀏覽：使用粗體、列表、小標題",
+    "國際讀者：避免文化專屬的比喻或俚語"
+  ],
+  "examples": {
+    "good": {
+      "text": "想要提升業績嗎？\n\n我們的課程包含：\n• 文案寫作基礎\n• FAB 法則應用\n• 實戰案例分析\n\n3個月內，讓你的轉換率提升50%！",
+      "analysis": {
+        "sentence_length": "適中",
+        "paragraph_structure": "分段清楚",
+        "formatting": "使用列表",
+        "readability": "極佳"
+      }
+    },
+    "poor": {
+      "text": "本公司致力於提供企業級解決方案包含完整的CRM系統整合ERP功能以及先進的AI演算法讓您的業務流程自動化提升ROI並且降低TCO同時我們也提供完善的SLA保證以及7x24的技術支援讓您無後顧之憂。",
+      "analysis": {
+        "sentence_length": "過長（95字）",
+        "paragraph_structure": "沒有分段",
+        "jargon": "術語過多",
+        "readability": "極差"
+      }
+    }
+  }
+}

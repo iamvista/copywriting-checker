@@ -1,0 +1,365 @@
+{
+  "name": "文案改善建議模板",
+  "description": "根據分析結果提供具體、可執行的改善建議",
+  "version": "1.1",
+  "dimensions": {
+    "title_appeal": {
+      "name": "標題吸引力",
+      "suggestions": {
+        "add_numbers": {
+          "condition": "缺少數字",
+          "template": "建議在標題中加入具體數字，例如「3個步驟」、「5分鐘」、「提升50%」",
+          "examples": [
+            {
+              "before": "提升業績的方法",
+              "after": "5個方法讓業績翻倍"
+            },
+            {
+              "before": "學會文案寫作",
+              "after": "30天學會文案寫作"
+            }
+          ]
+        },
+        "add_question": {
+          "condition": "缺少疑問句",
+          "template": "建議將標題改為問句形式，例如「如何...？」、「為什麼...？」、「你知道嗎？」",
+          "examples": [
+            {
+              "before": "文案寫作技巧",
+              "after": "如何寫出高轉換率的文案？"
+            },
+            {
+              "before": "業績提升方法",
+              "after": "為什麼這5個方法能讓業績翻倍？"
+            }
+          ]
+        },
+        "add_pain_point": {
+          "condition": "缺少痛點關鍵字",
+          "template": "建議加入痛點關鍵字，觸動讀者需求，例如「避免...」、「解決...」、「不再...」",
+          "examples": [
+            {
+              "before": "文案寫作課程",
+              "after": "解決文案寫不出來的困擾"
+            },
+            {
+              "before": "提升轉換率",
+              "after": "避免低轉換率的5個致命錯誤"
+            }
+          ]
+        },
+        "add_curiosity": {
+          "condition": "缺少好奇心觸發",
+          "template": "建議加入好奇心觸發詞，例如「秘訣」、「方法」、「原來」、「你不知道的」",
+          "examples": [
+            {
+              "before": "寫好文案的方法",
+              "after": "寫好文案的3個秘訣"
+            },
+            {
+              "before": "提升業績",
+              "after": "你不知道的業績翻倍秘密"
+            }
+          ]
+        },
+        "add_urgency": {
+          "condition": "缺少緊迫感",
+          "template": "可考慮加入時間限制，例如「限時優惠」、「最後3天」、「立即行動」",
+          "examples": [
+            {
+              "before": "報名文案課程",
+              "after": "限時優惠！最後3天報名文案課程"
+            }
+          ]
+        }
+      }
+    },
+    "consumer_insight": {
+      "name": "消費者洞察",
+      "suggestions": {
+        "define_audience": {
+          "condition": "目標受眾不明確",
+          "template": "建議明確指出目標受眾，例如「為行銷人員量身打造」、「專為創業者設計」",
+          "examples": [
+            {
+              "before": "這個課程很實用",
+              "after": "為忙碌的行銷人員量身打造的文案課程"
+            },
+            {
+              "before": "適合所有人",
+              "after": "專為創業者設計的商業文案課"
+            }
+          ]
+        },
+        "add_pain_scenario": {
+          "condition": "缺少具體痛點情境",
+          "template": "建議加入具體痛點情境，讓讀者產生共鳴。例如「你是否常常...」、「是不是覺得...」",
+          "examples": [
+            {
+              "before": "文案很重要",
+              "after": "身為行銷人員，你是否常常花了3小時寫文案，卻只有3個人按讚？"
+            },
+            {
+              "before": "學習很重要",
+              "after": "創業後，你是否發現自己寫的文案沒人看、沒人買？"
+            }
+          ]
+        },
+        "add_empathy": {
+          "condition": "缺少同理心表達",
+          "template": "建議加入同理心表達，例如「我懂你的困擾」、「我也曾經...」、「相信你一定...」",
+          "examples": [
+            {
+              "before": "這很困難",
+              "after": "我懂，寫文案真的不容易"
+            },
+            {
+              "before": "很多人有這個問題",
+              "after": "我也曾經為了寫文案苦惱很久"
+            }
+          ]
+        }
+      }
+    },
+    "call_to_action": {
+      "name": "行動呼籲",
+      "suggestions": {
+        "make_clear": {
+          "condition": "CTA不明確",
+          "template": "建議明確告知下一步，例如「立即報名」、「馬上下載」、「現在就預約」",
+          "examples": [
+            {
+              "before": "歡迎了解更多",
+              "after": "立即點擊連結報名"
+            },
+            {
+              "before": "有興趣可以聯絡我們",
+              "after": "現在就填寫表單，30秒完成預約"
+            }
+          ]
+        },
+        "add_urgency": {
+          "condition": "缺少急迫感",
+          "template": "建議加入時間或數量限制，例如「限時24小時」、「僅剩10個名額」",
+          "examples": [
+            {
+              "before": "立即報名",
+              "after": "限時24小時！立即報名享早鳥優惠"
+            },
+            {
+              "before": "馬上購買",
+              "after": "僅剩10個名額，錯過不再！"
+            }
+          ]
+        },
+        "lower_barrier": {
+          "condition": "行動門檻高",
+          "template": "建議降低門檻，例如「免費試用7天」、「一鍵完成」、「30秒搞定」、「無需信用卡」",
+          "examples": [
+            {
+              "before": "立即購買",
+              "after": "免費試用7天，無需信用卡"
+            },
+            {
+              "before": "填寫表單",
+              "after": "30秒完成報名，一鍵送出"
+            }
+          ]
+        },
+        "add_benefit": {
+          "condition": "未重申好處",
+          "template": "建議在CTA中重申好處，例如「立即報名，獲得價值5000元課程」",
+          "examples": [
+            {
+              "before": "立即報名",
+              "after": "立即報名，獲得價值5000元的獎勵課程"
+            },
+            {
+              "before": "馬上下載",
+              "after": "馬上下載，30天內學會文案技巧"
+            }
+          ]
+        }
+      }
+    },
+    "readability": {
+      "name": "可讀性",
+      "suggestions": {
+        "shorten_sentences": {
+          "condition": "句子過長",
+          "template": "建議將長句拆分成多個短句，每句不超過25字",
+          "examples": [
+            {
+              "before": "本公司致力於提供企業級解決方案包含完整的CRM系統整合ERP功能以及先進的AI演算法讓您的業務流程自動化。",
+              "after": "本公司提供企業級解決方案。\n包含完整的CRM系統、ERP功能。\n運用先進的AI演算法，讓業務流程自動化。"
+            }
+          ]
+        },
+        "add_paragraphs": {
+          "condition": "段落過長",
+          "template": "建議適當分段，每段3-5行為佳，重要訊息可獨立成段",
+          "examples": [
+            {
+              "tip": "一個段落一個重點",
+              "tip2": "段落間要有空行"
+            }
+          ]
+        },
+        "simplify_jargon": {
+          "condition": "專業術語過多",
+          "template": "建議將專業術語改為白話文，或加上解釋。例如「ROI（投資報酬率）」",
+          "examples": [
+            {
+              "before": "運用AIDA模型建立銷售漏斗",
+              "after": "用4步驟吸引顧客：引起注意→產生興趣→激發慾望→促成行動"
+            },
+            {
+              "before": "提升ROI和KPI",
+              "after": "提升投資報酬率（ROI）和關鍵績效指標（KPI）"
+            }
+          ]
+        },
+        "use_lists": {
+          "condition": "內容密集",
+          "template": "建議使用列表或項目符號，讓內容更易讀",
+          "examples": [
+            {
+              "before": "課程包含文案寫作基礎、FAB法則應用、實戰案例分析、一對一諮詢。",
+              "after": "課程包含：\n• 文案寫作基礎\n• FAB法則應用\n• 實戰案例分析\n• 一對一諮詢"
+            }
+          ]
+        }
+      }
+    },
+    "value_proposition": {
+      "name": "價值主張",
+      "suggestions": {
+        "add_specific_benefits": {
+          "condition": "缺少具體好處",
+          "template": "建議明確說明能得到什麼，例如「讓你在30天內掌握技巧」、「幫你節省50%時間」",
+          "examples": [
+            {
+              "before": "這個課程很棒",
+              "after": "讓你在30天內掌握文案技巧"
+            },
+            {
+              "before": "品質優良",
+              "after": "幫你節省50%的時間成本"
+            }
+          ]
+        },
+        "add_numbers": {
+          "condition": "缺少具體數字",
+          "template": "建議加入具體數字或時間框架，例如「轉換率提升40%」、「3週內見效」",
+          "examples": [
+            {
+              "before": "大幅提升轉換率",
+              "after": "轉換率提升40%"
+            },
+            {
+              "before": "快速見效",
+              "after": "3週內見效"
+            }
+          ]
+        },
+        "add_differentiation": {
+          "condition": "缺少差異化",
+          "template": "建議說明為何選擇你，例如「業界唯一提供終身更新」、「獨家一對一諮詢」",
+          "examples": [
+            {
+              "before": "我們很專業",
+              "after": "業界唯一提供終身免費更新"
+            },
+            {
+              "before": "服務很好",
+              "after": "獨家一對一文案健診服務"
+            }
+          ]
+        },
+        "add_social_proof": {
+          "condition": "缺少可信度支持",
+          "template": "建議加入客戶見證、數據或案例，例如「200位學員見證，滿意度98%」",
+          "examples": [
+            {
+              "before": "很多人推薦",
+              "after": "200位學員見證，滿意度98%"
+            },
+            {
+              "before": "效果很好",
+              "after": "已幫助500+企業提升業績"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "general_tips": {
+    "fab_principle": {
+      "title": "記住FAB法則",
+      "tips": [
+        "不要只停留在F（特性）層面",
+        "一定要說到B（效益）",
+        "Features tell, but benefits sell"
+      ]
+    },
+    "audience_first": {
+      "title": "以讀者為中心",
+      "tips": [
+        "先想到讀者，把讀者擺在第一位",
+        "不是寫自己想說的話，而是讀者想知道的事",
+        "使用讀者慣用的語言"
+      ]
+    },
+    "writing_process": {
+      "title": "寫作流程",
+      "steps": [
+        "停：先不急著寫，思考目標受眾是誰",
+        "看：多方蒐集資料，觀察市場和競品",
+        "聽：多聽客戶的聲音，了解需求和痛點",
+        "寫：運用FAB法則，清楚說明特性、優勢、效益",
+        "改：檢視是否有明確CTA，文字是否易讀"
+      ]
+    }
+  },
+  "score_based_recommendations": {
+    "excellent": {
+      "range": [80, 100],
+      "message": "文案品質卓越！已經掌握關鍵要素，可以直接使用。",
+      "suggestions": [
+        "可以進行A/B測試，持續優化",
+        "嘗試不同風格的變化版本",
+        "分析數據，追蹤實際轉換效果"
+      ]
+    },
+    "good": {
+      "range": [60, 79],
+      "message": "文案基礎紮實，稍作調整會更好。",
+      "suggestions": [
+        "檢視是否完整運用FAB法則",
+        "強化最弱的維度",
+        "加入更多具體數字或證據"
+      ]
+    },
+    "fair": {
+      "range": [40, 59],
+      "message": "文案有明顯改善空間，建議重點優化。",
+      "suggestions": [
+        "重新檢視目標受眾是誰",
+        "確保有說明對讀者的具體好處",
+        "加強CTA的明確性和急迫感",
+        "簡化句子和段落，提升可讀性"
+      ]
+    },
+    "poor": {
+      "range": [0, 39],
+      "message": "建議參考範例重新撰寫。",
+      "suggestions": [
+        "先明確定義目標受眾",
+        "找出讀者的痛點和需求",
+        "運用FAB法則重新架構",
+        "參考優秀文案範例",
+        "可考慮使用AI工具輔助發想"
+      ]
+    }
+  }
+}

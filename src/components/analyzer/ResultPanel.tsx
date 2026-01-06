@@ -454,7 +454,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                     <span className="text-neutral-500">/ 終身觀看</span>
                   </div>
                   <p className="text-xs text-neutral-500 mt-3">
-                    ⏰ 平均每分鐘成本僅 $10，Vista 親自批改機會難得
+                    ⏰ 平均每分鐘成本僅 $10
                   </p>
                 </div>
               </div>

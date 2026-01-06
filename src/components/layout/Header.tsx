@@ -16,7 +16,7 @@ export const Header: FC<HeaderProps> = ({ onReset }) => {
             <span className="text-2xl lg:text-3xl">📝</span>
             <div>
               <h1 className="text-base lg:text-xl font-bold text-gray-900">Vista 文案健檢工具</h1>
-              <p className="text-xs lg:text-sm text-gray-600 hidden sm:block">Content Copywriting Checker</p>
+              <p className="text-xs lg:text-sm text-gray-600 hidden sm:block">Vista's Copywriting Checker</p>
             </div>
           </div>
           <a

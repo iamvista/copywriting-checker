@@ -223,6 +223,137 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
         />
       </div>
 
+      {/* 免費課程 CTA - 僅在分數 < 40 時顯示 */}
+      {result.totalScore < 40 && (
+        <div className="card-section border-l-warning bg-gradient-to-br from-warning/10 via-primary/5 to-success/5">
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-warning/20 rounded-full mb-4">
+              <span className="text-4xl">🎁</span>
+            </div>
+            <h3 className="text-2xl lg:text-3xl font-bold text-neutral-800 mb-3">
+              別擔心！Vista 送你一堂免費課 🚀
+            </h3>
+            <p className="text-base lg:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed mb-2">
+              分數低不是問題，問題是<span className="font-bold text-warning">不知道怎麼改</span>。
+            </p>
+            <p className="text-base lg:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
+              Vista 特別為文案新手準備了<span className="font-bold text-primary">「文案寫作基礎課」</span>，
+              <span className="font-bold text-success">完全免費</span>，帶你從 0 到 1 打好文案基礎！
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-6 lg:p-8 border-2 border-warning/30">
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="space-y-3">
+                  <h4 className="font-bold text-lg text-neutral-800 mb-4 flex items-center gap-2">
+                    <span className="text-warning">📚</span>
+                    <span>課程內容</span>
+                  </h4>
+                  <div className="flex items-start gap-3">
+                    <span className="text-success text-xl flex-shrink-0">✓</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">FAB 法則實戰</p>
+                      <p className="text-sm text-neutral-600">學會把功能變成顧客想要的利益</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-success text-xl flex-shrink-0">✓</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">爆款標題公式</p>
+                      <p className="text-sm text-neutral-600">10 個即學即用的標題模板</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-success text-xl flex-shrink-0">✓</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">痛點挖掘技巧</p>
+                      <p className="text-sm text-neutral-600">找到客戶真正在意的問題</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-success text-xl flex-shrink-0">✓</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">行動呼籲設計</p>
+                      <p className="text-sm text-neutral-600">讓讀者忍不住點擊的 CTA 寫法</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <h4 className="font-bold text-lg text-neutral-800 mb-4 flex items-center gap-2">
+                    <span className="text-primary">🎯</span>
+                    <span>你將獲得</span>
+                  </h4>
+                  <div className="flex items-start gap-3">
+                    <span className="text-warning text-xl flex-shrink-0">🎁</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">終身免費存取</p>
+                      <p className="text-sm text-neutral-600">課程影片可重複觀看</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-warning text-xl flex-shrink-0">📝</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">實戰練習題</p>
+                      <p className="text-sm text-neutral-600">邊學邊練，立即應用</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-warning text-xl flex-shrink-0">👥</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">社群互助</p>
+                      <p className="text-sm text-neutral-600">加入 Vista 學員社群交流</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-warning text-xl flex-shrink-0">⚡</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">即時問答</p>
+                      <p className="text-sm text-neutral-600">課程問題隨時發問</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-warning/10 to-primary/10 rounded-xl p-5 mb-6 border border-warning/20">
+                <div className="flex items-center justify-center gap-3 flex-wrap">
+                  <span className="text-3xl">🔥</span>
+                  <p className="text-lg font-bold text-neutral-800">
+                    限時免費！原價 <span className="line-through text-neutral-500">NT$ 1,980</span>
+                    <span className="text-2xl text-success ml-3">現在 $0</span>
+                  </p>
+                  <span className="text-3xl">🔥</span>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <a
+                  href="https://www.skool.com/vista-8077/classroom/cac1e425?md=f59b10fe1ebf46e2bff817c6f045f582"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-warning to-primary text-white text-lg font-bold rounded-xl hover:from-warning-dark hover:to-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <span>🎓</span>
+                  <span>立即免費領取課程</span>
+                  <span>→</span>
+                </a>
+                <p className="text-sm text-neutral-500 mt-4">
+                  ⚡ 點擊後立即開始學習 · 不需要信用卡 · 100% 免費
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 text-center">
+            <p className="text-sm text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+              💬 <span className="font-semibold">已有 4,200+ 位學員</span>透過這堂課打好文案基礎，
+              平均在 2 週內將文案分數提升到 70 分以上。你也可以！
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* 文案金句 - 隨機顯示 */}
       <div className="card-section border-l-primary bg-gradient-to-br from-primary/5 to-accent-teal/5">
         <div className="flex items-center justify-between mb-4">

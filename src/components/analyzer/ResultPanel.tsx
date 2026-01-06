@@ -471,8 +471,58 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
         />
       </div>
 
+      {/* Newsletter Subscription */}
+      <div className="card-section border-l-primary bg-gradient-to-br from-primary/5 via-info/5 to-success/5">
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+            <span className="text-3xl">✉️</span>
+          </div>
+          <h3 className="text-2xl font-bold text-neutral-800 mb-3">
+            每週獲得更多文案技巧
+          </h3>
+          <p className="text-base text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+            訂閱 <span className="font-semibold text-primary">Vista 電子報</span>，每週收到實戰文案技巧、案例分析與內容行銷洞察。
+            <br />
+            <span className="text-sm text-neutral-500 mt-2 inline-block">已有超過 10,000 位行銷人與創作者訂閱</span>
+          </p>
+        </div>
+
+        <div className="max-w-lg mx-auto">
+          <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-primary/20">
+            <div className="flex items-start gap-3 mb-4 text-sm text-neutral-600">
+              <div className="flex items-center gap-2">
+                <span className="text-success">✓</span>
+                <span>每週精選文案技巧</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-success">✓</span>
+                <span>實戰案例分析</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-success">✓</span>
+                <span>隨時可取消</span>
+              </div>
+            </div>
+
+            <iframe
+              src="https://iamvista.substack.com/embed"
+              width="100%"
+              height="320"
+              style={{ border: 'none', background: 'transparent' }}
+              frameBorder="0"
+              scrolling="no"
+              title="Vista 電子報訂閱"
+            ></iframe>
+          </div>
+        </div>
+
+        <p className="text-center text-xs text-neutral-500 mt-6">
+          🔒 我們重視你的隱私，絕不會將你的資料分享給第三方
+        </p>
+      </div>
+
       {/* Actions */}
-      <div className="card-section border-l-accent-bronze bg-neutral-sand/20">
+      <div className="card-section border-l-info bg-neutral-100">
         <div className="flex flex-wrap gap-4 justify-center">
           <button onClick={onReset} className="btn-primary">
             🔍 重新分析

@@ -288,7 +288,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                   <div className="flex items-start gap-3">
                     <span className="text-warning text-xl flex-shrink-0">🎁</span>
                     <div>
-                      <p className="font-semibold text-neutral-800">終身免費存取</p>
+                      <p className="font-semibold text-neutral-800">免費課程存取</p>
                       <p className="text-sm text-neutral-600">課程影片可重複觀看</p>
                     </div>
                   </div>
@@ -461,7 +461,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                     <span className="text-neutral-500">/ 終身觀看</span>
                   </div>
                   <p className="text-xs text-neutral-500 mt-3">
-                    ⏰ 平均每分鐘課程成本僅 $10，Vista 親自批改更是無價
+                    ⏰ 平均每分鐘成本僅 $10，Vista 親自批改機會難得
                   </p>
                 </div>
               </div>
@@ -496,6 +496,162 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
           <div className="mt-6 text-center">
             <p className="text-sm text-neutral-600 max-w-2xl mx-auto leading-relaxed">
               🎯 這堂課特別適合：想為品牌/產品建立獨特故事的創業者、行銷人、品牌經理
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Vista 寫作陪伴計畫 - 60 分以上顯示 */}
+      {result.totalScore >= 60 && (
+        <div className="card-section border-l-success bg-gradient-to-br from-success/5 via-primary/5 to-accent-purple/5">
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-success/10 rounded-full mb-4">
+              <span className="text-4xl">✍️</span>
+            </div>
+            <h3 className="text-2xl lg:text-3xl font-bold text-neutral-800 mb-3">
+              恭喜！你已具備良好文案基礎 🎉
+            </h3>
+            <div className="inline-block bg-white px-6 py-3 rounded-full shadow-md mb-4">
+              <p className="text-lg font-bold text-neutral-700">
+                你的分數：<span className="text-2xl text-success mx-2">{result.totalScore}</span>分
+              </p>
+            </div>
+            <p className="text-base lg:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed mb-2">
+              你已經超越<span className="font-bold text-success">大多數人</span>，但要從「會寫」到「寫得好」，
+            </p>
+            <p className="text-base lg:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
+              你需要的不是課程，而是<span className="font-bold text-primary">一位稱職的寫作教練陪你前進</span>。
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-xl p-6 lg:p-8 border-2 border-success/30">
+              <div className="text-center mb-6">
+                <h4 className="text-2xl font-bold text-neutral-800 mb-2">
+                  Vista 寫作陪伴計畫
+                </h4>
+                <p className="text-neutral-600 text-sm">
+                  創立於 2019 年 · 為期 3 個月的寫作教練服務
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-r from-success/10 to-primary/10 rounded-xl p-5 mb-6 border border-success/20">
+                <p className="text-neutral-700 leading-relaxed text-center">
+                  <span className="font-bold text-success">「師父領進門，修行靠個人」</span><br />
+                  坊間寫作課程受限於時間，多半僅能傳授原則和技巧。<br />
+                  <span className="font-semibold">但如果有一位值得信任的寫作教練陪伴你一起前行，學習效果會更好！</span>
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="space-y-4">
+                  <h5 className="font-bold text-lg text-neutral-800 mb-3 flex items-center gap-2">
+                    <span className="text-success">🎯</span>
+                    <span>計畫特色</span>
+                  </h5>
+                  <div className="flex items-start gap-3">
+                    <span className="text-success text-xl flex-shrink-0">✓</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">以學員為核心</p>
+                      <p className="text-sm text-neutral-600">不是傳統課程，而是為你量身打造的學習諮詢</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-success text-xl flex-shrink-0">✓</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">封閉式寫作社群</p>
+                      <p className="text-sm text-neutral-600">練習寫作、繳交作業、同儕互學</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-success text-xl flex-shrink-0">✓</span>
+                    <div>
+                      <p className="font-semibold text-neutral-800">專屬 LINE 群組</p>
+                      <p className="text-sm text-neutral-600">與 Vista 教練、學員即時討論互動</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <h5 className="font-bold text-lg text-neutral-800 mb-3 flex items-center gap-2">
+                    <span className="text-primary">📝</span>
+                    <span>適合對象</span>
+                  </h5>
+                  <div className="flex items-start gap-3">
+                    <span className="text-primary text-xl flex-shrink-0">•</span>
+                    <div>
+                      <p className="text-sm text-neutral-700">想學習撰寫商品文案</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-primary text-xl flex-shrink-0">•</span>
+                    <div>
+                      <p className="text-sm text-neutral-700">需要精進社群貼文寫作</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-primary text-xl flex-shrink-0">•</span>
+                    <div>
+                      <p className="text-sm text-neutral-700">想撰寫新聞稿或部落格</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-primary text-xl flex-shrink-0">•</span>
+                    <div>
+                      <p className="text-sm text-neutral-700">希望打造個人品牌</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-primary text-xl flex-shrink-0">•</span>
+                    <div>
+                      <p className="text-sm text-neutral-700 font-semibold">想從「會寫」進化到「專業級」</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-warning/10 rounded-xl p-5 mb-6 border border-warning/20">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl flex-shrink-0">💡</span>
+                  <div>
+                    <p className="font-bold text-neutral-800 mb-2">Vista 的話</p>
+                    <p className="text-sm text-neutral-700 leading-relaxed">
+                      「你不必很厲害才開始，而是開始之後就會慢慢變厲害了！學習寫作也是一樣的道理。
+                      如果你已經準備好了，現在就讓 Vista 陪你一起踏上寫作之路吧！」
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center space-y-4">
+                <div className="bg-gradient-to-r from-success/5 to-primary/5 rounded-lg p-5 border border-success/20">
+                  <p className="text-neutral-700 mb-3">
+                    <span className="font-bold text-success">為期 3 個月</span>的深度陪伴式學習
+                  </p>
+                  <p className="text-sm text-neutral-600">
+                    側重於學員需求與實際演練，不同於一般課程只講述技巧
+                  </p>
+                </div>
+
+                <a
+                  href="mailto:iamvista@gmail.com?subject=詢問「Vista寫作陪伴計畫」&body=你好，我在文案健檢工具得到 {result.totalScore} 分，想了解「Vista寫作陪伴計畫」的詳細資訊。%0D%0A%0D%0A我的需求：%0D%0A"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-success to-primary text-white text-lg font-bold rounded-xl hover:from-success-dark hover:to-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <span>📧</span>
+                  <span>來信詢問計畫詳情</span>
+                  <span>→</span>
+                </a>
+                <p className="text-xs text-neutral-500">
+                  ✉️ 點擊自動開啟郵件，或手動寄信至 <span className="font-mono text-primary">iamvista@gmail.com</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 text-center">
+            <p className="text-sm text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+              💬 這不是一般的寫作課程，而是<span className="font-semibold text-success">真正的教練陪伴服務</span>。
+              如果你認真想精進寫作，Vista 很樂意成為你的寫作教練！
             </p>
           </div>
         </div>

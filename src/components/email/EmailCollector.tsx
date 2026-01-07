@@ -1,5 +1,6 @@
 import { FC, useState } from 'react'
 import { trackMetaLead } from '@/utils/metaPixel'
+import { getDownloadLink } from '@/config/downloads'
 
 interface EmailCollectorProps {
   trigger: 'analysis_complete' | 'pdf_download' | 'exit_intent'
@@ -22,6 +23,7 @@ export const EmailCollector: FC<EmailCollectorProps> = ({
 }) => {
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
   const [error, setError] = useState('')
 
   const validateEmail = (email: string): boolean => {
@@ -59,6 +61,9 @@ export const EmailCollector: FC<EmailCollectorProps> = ({
         value: score,
       })
 
+      // 顯示成功畫面
+      setIsSuccess(true)
+
       // 通知父組件
       onEmailSubmit(email)
     } catch (err) {
@@ -67,6 +72,75 @@ export const EmailCollector: FC<EmailCollectorProps> = ({
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const downloadLink = getDownloadLink(trigger === 'exit_intent' ? 'exit_intent' : 'pdf_download')
+
+  // 成功畫面
+  if (isSuccess) {
+    return (
+      <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 relative animate-fade-in">
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-neutral-500 hover:text-neutral-800 text-2xl font-bold transition-colors"
+            aria-label="關閉"
+          >
+            ×
+          </button>
+
+          {/* Success Icon */}
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-success/10 rounded-full mb-4">
+              <span className="text-4xl">✅</span>
+            </div>
+            <h3 className="text-2xl font-bold text-neutral-800 mb-2">感謝您的訂閱！</h3>
+            <p className="text-neutral-600 leading-relaxed mb-4">
+              我們已將您的 Email 記錄下來。以下是您的專屬贈品連結：
+            </p>
+          </div>
+
+          {/* Download Link */}
+          <div className="bg-gradient-to-r from-success/10 to-primary/10 rounded-xl p-6 mb-6 border-2 border-success/30">
+            <div className="flex items-start gap-3 mb-4">
+              <span className="text-2xl flex-shrink-0">🎁</span>
+              <div>
+                <h4 className="font-bold text-neutral-800 mb-1">您的贈品</h4>
+                <p className="text-sm text-neutral-700">{incentive}</p>
+              </div>
+            </div>
+
+            <a
+              href={downloadLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full btn-primary text-center"
+            >
+              📥 立即下載 PDF
+            </a>
+          </div>
+
+          {/* Additional Info */}
+          <div className="bg-blue-50 rounded-lg p-4 mb-4 border border-blue-200">
+            <p className="text-sm text-blue-800 leading-relaxed">
+              <strong className="text-blue-900">📧 接下來會發生什麼？</strong><br />
+              • 我們會將每週精選文案技巧發送到 <strong className="font-mono text-blue-900">{email}</strong><br />
+              • 包含實戰案例、改寫技巧與最新文案趨勢<br />
+              • 隨時可以取消訂閱，不用擔心
+            </p>
+          </div>
+
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="w-full btn-secondary"
+          >
+            關閉視窗
+          </button>
+        </div>
+      </div>
+    )
   }
 
   return (

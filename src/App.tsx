@@ -12,6 +12,7 @@ import { ScoreTrendChart } from './components/history/ScoreTrendChart'
 import { EmailCollector } from './components/email/EmailCollector'
 import { Privacy } from './pages/Privacy'
 import { FAQ } from './pages/FAQ'
+import { Admin } from './pages/Admin'
 import { AnalysisResult } from './types/analyzer.types'
 import { initUTMTracking } from './utils/utmTracking'
 import { trackMetaPageView } from './utils/metaPixel'
@@ -117,6 +118,7 @@ const App: FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </div>
 

@@ -1,7 +1,9 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import { Header } from './components/layout/Header'
 import { Hero } from './components/layout/Hero'
+import { SocialProof } from './components/layout/SocialProof'
+import { Testimonials } from './components/layout/Testimonials'
 import { BeforeAfter } from './components/layout/BeforeAfter'
 import { AnalyzerPanel } from './components/analyzer/AnalyzerPanel'
 import { ResultPanel } from './components/analyzer/ResultPanel'
@@ -10,9 +12,20 @@ import { ScoreTrendChart } from './components/history/ScoreTrendChart'
 import { Privacy } from './pages/Privacy'
 import { FAQ } from './pages/FAQ'
 import { AnalysisResult } from './types/analyzer.types'
+import { initUTMTracking } from './utils/utmTracking'
+import { trackMetaPageView } from './utils/metaPixel'
 
 const App: FC = () => {
   const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null)
+
+  // 初始化追蹤
+  useEffect(() => {
+    // UTM 參數追蹤
+    initUTMTracking()
+
+    // Meta Pixel PageView
+    trackMetaPageView()
+  }, [])
 
   const handleAnalysisComplete = (result: AnalysisResult) => {
     setAnalysisResult(result)
@@ -28,6 +41,12 @@ const App: FC = () => {
         {!analysisResult ? (
           <>
             <Hero />
+
+            {/* 社會證明 - 建立信任感 */}
+            <div className="mt-12 mb-12">
+              <SocialProof />
+            </div>
+
             <AnalyzerPanel onAnalysisComplete={handleAnalysisComplete} />
 
             {/* 分數趨勢圖表 */}
@@ -44,7 +63,15 @@ const App: FC = () => {
           <ResultPanel result={analysisResult} onReset={handleReset} />
         )}
       </main>
-      {!analysisResult && <BeforeAfter />}
+      {!analysisResult && (
+        <>
+          <BeforeAfter />
+          {/* 使用者評價 */}
+          <div className="container mx-auto px-4 py-8 max-w-6xl mt-8">
+            <Testimonials />
+          </div>
+        </>
+      )}
     </>
   )
 

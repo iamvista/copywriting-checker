@@ -140,7 +140,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
   }
 
   return (
-    <div className="space-y-6">
+    <div data-pdf-export className="space-y-6">
       {/* Header - McKinsey Style */}
       <div className="card-section border-l-primary bg-gradient-to-br from-white to-neutral-cream/30">
         <div className="flex items-center justify-between mb-6 pb-4 border-b-2 border-neutral-sand">

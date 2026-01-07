@@ -120,7 +120,7 @@ export const Testimonials: FC = () => {
           {testimonials.slice(3).map((testimonial, index) => (
             <div
               key={index}
-              className="bg-neutral-cream/50 rounded-lg p-5 border border-neutral-stone hover:bg-white transition-colors"
+              className="bg-neutral-cream/50 rounded-lg p-5 border border-neutral-stone hover:bg-white hover:border-primary hover:shadow-md transition-all duration-300 cursor-default"
             >
               <div className="flex items-start gap-3">
                 <div className="text-3xl flex-shrink-0">

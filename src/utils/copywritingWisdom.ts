@@ -473,7 +473,7 @@ export const COPYWRITING_WISDOM: CopywritingWisdom[] = [
   },
   {
     quote: '截止期限是創意的朋友',
-    explanation: '完成比完美重要。先發佈，再根據反饋優化。',
+    explanation: '完成比完美重要。先發佈，再根據回饋優化。',
     category: 'general',
   },
   {

@@ -19,6 +19,7 @@ import { copyToClipboard, generateShareText } from '@/utils/shareUtils'
 interface ResultPanelProps {
   result: AnalysisResult
   onReset: () => void
+  onRequestPDF?: () => void
 }
 
 const GRADE_CONFIG = {
@@ -28,7 +29,7 @@ const GRADE_CONFIG = {
   needsRewrite: { emoji: '📝', label: '加油中', color: 'text-primary', bgColor: 'bg-primary/10', borderColor: 'border-primary' },
 }
 
-export const ResultPanel: FC<ResultPanelProps> = ({ result, onReset }) => {
+export const ResultPanel: FC<ResultPanelProps> = ({ result, onReset, onRequestPDF }) => {
   const gradeInfo = GRADE_CONFIG[result.grade]
   const [copySuccess, setCopySuccess] = useState(false)
 
@@ -167,6 +168,22 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
               <p className="font-semibold text-primary mb-3 text-sm uppercase tracking-wide">分析的文案</p>
               <p className="whitespace-pre-wrap text-neutral-600 leading-relaxed text-sm lg:text-base">{result.analyzedText}</p>
             </div>
+
+            {/* 下載完整報告按鈕 */}
+            {onRequestPDF && (
+              <div className="flex-shrink-0 w-full lg:w-auto mb-6">
+                <button
+                  onClick={onRequestPDF}
+                  className="w-full btn-primary flex items-center justify-center gap-2 py-4 text-base font-bold shadow-lg hover:shadow-xl transition-all"
+                >
+                  <span className="text-2xl">📥</span>
+                  <span>下載完整分析報告</span>
+                </button>
+                <p className="text-xs text-neutral-500 text-center mt-2">
+                  留下 Email，免費獲取「Vista 文案轉換優化模型」專業框架
+                </p>
+              </div>
+            )}
 
             {/* Social Share - 改為側邊欄 */}
             <div className="flex-shrink-0 w-full lg:w-auto">

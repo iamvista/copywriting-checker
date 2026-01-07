@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom'
 
 interface HeaderProps {
   onReset?: () => void
+  onRequestPDF?: () => void
 }
 
-export const Header: FC<HeaderProps> = ({ onReset }) => {
+export const Header: FC<HeaderProps> = ({ onReset, onRequestPDF }) => {
   const navigate = useNavigate()
 
   const handleLogoClick = () => {
@@ -29,14 +30,26 @@ export const Header: FC<HeaderProps> = ({ onReset }) => {
               <p className="text-xs lg:text-sm text-gray-600 hidden sm:block">Vista's Copywriting Checker</p>
             </div>
           </div>
-          <a
-            href="https://iamvista.substack.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:text-primary-dark text-xs lg:text-sm font-medium transition-colors whitespace-nowrap px-3 py-2 rounded-lg hover:bg-primary/5"
-          >
-            訂閱電子報
-          </a>
+          <div className="flex items-center gap-2">
+            {onRequestPDF && (
+              <button
+                onClick={onRequestPDF}
+                className="btn-primary text-xs lg:text-sm px-3 lg:px-4 py-2 flex items-center gap-1 shadow-md hover:shadow-lg"
+              >
+                <span>📥</span>
+                <span className="hidden sm:inline">免費下載</span>
+                <span className="sm:hidden">下載</span>
+              </button>
+            )}
+            <a
+              href="https://iamvista.substack.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary-dark text-xs lg:text-sm font-medium transition-colors whitespace-nowrap px-3 py-2 rounded-lg hover:bg-primary/5 hidden md:block"
+            >
+              訂閱電子報
+            </a>
+          </div>
         </div>
       </div>
     </header>

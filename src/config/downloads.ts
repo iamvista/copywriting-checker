@@ -4,11 +4,11 @@
  */
 
 export const DOWNLOAD_LINKS = {
-  // Exit Intent 贈品：Vista 文案黃金公式檢查表 PDF
-  EXIT_INTENT_PDF: 'https://your-cloud-storage.com/vista-copywriting-checklist.pdf',
+  // Exit Intent 贈品：Vista 文案快速檢查表（簡化版，降低門檻）
+  EXIT_INTENT_PDF: 'https://copywriting.vista.tw/Vista文案快速檢查表.pdf',
 
-  // PDF 下載贈品：完整分析報告 + 改寫範例
-  FULL_REPORT_PDF: 'https://your-cloud-storage.com/vista-full-report-template.pdf',
+  // PDF 下載贈品：Vista 文案轉換優化模型（完整版專業框架）
+  FULL_REPORT_PDF: 'https://app.box.com/s/ciatg4u2d0pae9jcnzden4ko8eqz52oz',
 
   // 其他資源
   WEEKLY_TIPS_SUBSCRIBE: 'https://iamvista.substack.com/',

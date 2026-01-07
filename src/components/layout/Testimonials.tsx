@@ -52,7 +52,7 @@ const testimonials: Testimonial[] = [
     avatar: '💼',
     rating: 5,
     comment: '作為文案接案者，這個工具幫我節省了大量時間。交件前用它檢查一遍，不僅提升品質，客戶也更滿意，回頭率變高了！',
-    result: '接案量增加 60%',
+    result: '接案量增加 30%',
   },
 ]
 
@@ -143,6 +143,14 @@ export const Testimonials: FC = () => {
                         </span>
                       </>
                     )}
+                  </div>
+                  {/* Rating */}
+                  <div className="flex gap-1 mb-2">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <span key={i} className="text-warning text-sm">
+                        ⭐
+                      </span>
+                    ))}
                   </div>
                   <p className="text-neutral-700 text-sm leading-relaxed">
                     「{testimonial.comment}」

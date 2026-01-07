@@ -69,6 +69,12 @@ const App: FC = () => {
     setShowEmailCollector(false)
   }
 
+  // 主動請求 PDF 下載
+  const handleRequestPDF = () => {
+    setEmailCollectorType('pdf')
+    setShowEmailCollector(true)
+  }
+
   const HomePage = () => (
     <>
       <main className="container mx-auto px-4 py-8 max-w-4xl">
@@ -94,7 +100,7 @@ const App: FC = () => {
             </div>
           </>
         ) : (
-          <ResultPanel result={analysisResult} onReset={handleReset} />
+          <ResultPanel result={analysisResult} onReset={handleReset} onRequestPDF={handleRequestPDF} />
         )}
       </main>
       {!analysisResult && (
@@ -111,7 +117,7 @@ const App: FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header onReset={handleReset} />
+      <Header onReset={handleReset} onRequestPDF={handleRequestPDF} />
 
       <div className="flex-1">
         <Routes>
@@ -134,6 +140,13 @@ const App: FC = () => {
               </p>
             </div>
             <div className="flex gap-6 text-sm">
+              <button
+                onClick={handleRequestPDF}
+                className="text-primary-light hover:text-primary font-semibold transition-colors flex items-center gap-1"
+              >
+                <span>📥</span>
+                <span>免費下載檢查表</span>
+              </button>
               <Link to="/privacy" className="text-neutral-sand hover:text-primary-light transition-colors">
                 隱私權政策
               </Link>
@@ -164,8 +177,8 @@ const App: FC = () => {
           }
           incentive={
             emailCollectorType === 'exit'
-              ? '「Vista 文案黃金公式」檢查表 PDF + 每週精選文案技巧'
-              : '完整分析報告 PDF + 獨家文案改寫範例'
+              ? '「Vista 文案黃金公式 - 快速檢查表」20 個發文前必檢項目，3 分鐘避免 80% 常見錯誤'
+              : '「Vista 文案轉換優化模型」完整版 PDF - 8 大策略模組專業診斷框架'
           }
         />
       )}

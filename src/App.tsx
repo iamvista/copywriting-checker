@@ -164,8 +164,8 @@ const App: FC = () => {
           }
           description={
             emailCollectorType === 'exit'
-              ? '留下您的 Email，我們將定期分享實用的文案技巧與案例，幫助您持續精進文案能力！'
-              : '輸入您的 Email，立即下載包含詳細分析與改善建議的 PDF 完整報告。'
+              ? '留下您的 E-mail，我們將定期分享實用的文案技巧與案例，幫助您持續精進文案能力！'
+              : '輸入您的 E-mail，立即下載包含詳細分析與改善建議的 PDF 完整報告。'
           }
           incentive={
             emailCollectorType === 'exit'

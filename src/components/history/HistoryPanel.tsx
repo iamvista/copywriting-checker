@@ -101,7 +101,7 @@ export const HistoryPanel: FC<HistoryPanelProps> = ({ onSelectHistory }) => {
           const badge = getScoreBadge(item.result.totalScore)
           const previewText =
             item.result.analyzedText.length > 80
-              ? item.result.analyzedText.substring(0, 80) + '...'
+              ? item.result.analyzedText.substring(0, 80) + '⋯⋯'
               : item.result.analyzedText
 
           return (

@@ -206,7 +206,7 @@ export const COPYWRITING_WISDOM: CopywritingWisdom[] = [
     category: 'psychology',
   },
   {
-    quote: '給人台階下，降低決策門檻',
+    quote: '給人臺階下，降低決策門檻',
     explanation: '「免費試用」、「不滿意退費」都在降低心理障礙。',
     category: 'psychology',
   },
@@ -257,7 +257,7 @@ export const COPYWRITING_WISDOM: CopywritingWisdom[] = [
   },
   {
     quote: '情境化的描述比條列更有感',
-    explanation: '「想像週末早晨，在陽台喝咖啡」比「舒適的陽台」更吸引人。',
+    explanation: '「想像週末早晨，在陽臺喝咖啡」比「舒適的陽臺」更吸引人。',
     category: 'psychology',
   },
   {
@@ -468,7 +468,7 @@ export const COPYWRITING_WISDOM: CopywritingWisdom[] = [
   },
   {
     quote: '持續學習，文案沒有終點',
-    explanation: '市場在變、受眾在變、平台在變。要保持學習和實驗。',
+    explanation: '市場在變、受眾在變、平臺在變。要保持學習和實驗。',
     category: 'general',
   },
   {
@@ -487,7 +487,7 @@ export const COPYWRITING_WISDOM: CopywritingWisdom[] = [
     category: 'general',
   },
   {
-    quote: '了解平台特性',
+    quote: '了解平臺特性',
     explanation: 'Facebook、IG、LinkedIn 的文案風格各不相同。',
     category: 'general',
   },

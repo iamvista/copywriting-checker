@@ -65,7 +65,7 @@ export const ResultPanel: FC<ResultPanelProps> = ({ result, onReset, onRequestPD
       }
     }
 
-    // 一般平台使用更生動的版本
+    // 一般平臺使用更生動的版本
     if (result.totalScore >= 90) {
       return `😱 剛用 Vista 文案健檢工具測了我的文案，竟然拿到 ${result.totalScore} 分！
 
@@ -89,7 +89,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
 
 看完分析報告嚇一跳：原來我以為很棒的文案，其實漏洞百出 😱
 
-還好是免費工具發現的，不然真的會砸錢下去...快去測測你的文案吧`
+還好是免費工具發現的，不然真的會砸錢下去⋯⋯快去測測你的文案吧`
     } else {
       return `Vista 文案健檢工具一針見血！💥
 
@@ -180,7 +180,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                   <span>下載完整分析報告</span>
                 </button>
                 <p className="text-xs text-neutral-500 text-center mt-2">
-                  留下 Email，免費獲取「Vista 文案轉換優化模型」專業框架
+                  留下 E-mail，免費獲取「Vista 文案轉換優化模型」專業框架
                 </p>
               </div>
             )}

@@ -26,7 +26,7 @@ export const Privacy: FC = () => {
               <h3 className="text-lg font-semibold text-neutral-800 mb-2 mt-4">1.1 您提供的資料</h3>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>文案內容</strong>：當您使用本工具分析文案時，您輸入的文字內容會被暫時處理，但<strong>不會被儲存</strong>在我們的伺服器上。</li>
-                <li><strong>Email 地址</strong>：當您訂閱 Vista 電子報（透過 Substack）或來信詢問課程時，我們會收集您的 Email 地址。</li>
+                <li><strong>E-mail 地址</strong>：當您訂閱 Vista 電子報（透過 Substack）或來信詢問課程時，我們會收集您的 E-mail 地址。</li>
               </ul>
 
               <h3 className="text-lg font-semibold text-neutral-800 mb-2 mt-4">1.2 自動收集的資料</h3>
@@ -132,7 +132,7 @@ export const Privacy: FC = () => {
               </p>
               <div className="bg-neutral-100 rounded-lg p-4 mt-3">
                 <p><strong>服務提供者</strong>：Vista Cheng（鄭緯筌）</p>
-                <p><strong>Email</strong>：
+                <p><strong>E-mail</strong>：
                   <a href="mailto:iamvista@gmail.com" className="text-primary hover:text-primary-dark font-semibold">
                     iamvista@gmail.com
                   </a>

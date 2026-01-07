@@ -10,12 +10,12 @@ interface AnalyzerPanelProps {
 }
 
 const ANALYSIS_STEPS = [
-  '解析文案結構...',
-  '評估標題吸引力...',
-  '分析消費者洞察...',
-  '檢查行動呼籲...',
-  '計算可讀性分數...',
-  '生成改善建議...',
+  '解析文案結構⋯⋯',
+  '評估標題吸引力⋯⋯',
+  '分析消費者洞察⋯⋯',
+  '檢查行動呼籲⋯⋯',
+  '計算可讀性分數⋯⋯',
+  '生成改善建議⋯⋯',
 ]
 
 export const AnalyzerPanel: FC<AnalyzerPanelProps> = ({ onAnalysisComplete }) => {
@@ -130,7 +130,7 @@ export const AnalyzerPanel: FC<AnalyzerPanelProps> = ({ onAnalysisComplete }) =>
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="在此貼上您的文案標題或內容..."
+        placeholder="在此貼上您的文案標題或內容⋯⋯"
         className="w-full h-48 p-4 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none resize-none text-base"
         disabled={isAnalyzing}
       />
@@ -176,7 +176,7 @@ export const AnalyzerPanel: FC<AnalyzerPanelProps> = ({ onAnalysisComplete }) =>
           {isAnalyzing ? (
             <>
               <span className="animate-spin">⏳</span>
-              <span>分析中...</span>
+              <span>分析中⋯⋯</span>
             </>
           ) : (
             <>
@@ -241,7 +241,7 @@ export const AnalyzerPanel: FC<AnalyzerPanelProps> = ({ onAnalysisComplete }) =>
           </div>
 
           <p className="text-xs text-neutral-600 mt-4 text-center">
-            分析需要約 5-10 秒，請稍候...
+            分析需要約 5-10 秒，請稍候⋯⋯
           </p>
         </div>
       )}

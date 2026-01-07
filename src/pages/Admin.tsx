@@ -44,12 +44,12 @@ export const Admin: FC = () => {
 
   const exportToCSV = () => {
     if (emails.length === 0) {
-      alert('沒有 Email 資料可匯出')
+      alert('沒有 E-mail 資料可匯出')
       return
     }
 
     // 建立 CSV 內容
-    const headers = ['Email', '來源', '分數', '時間']
+    const headers = ['E-mail', '來源', '分數', '時間']
     const rows = emails.map((entry) => [
       entry.email,
       entry.trigger,
@@ -68,7 +68,7 @@ export const Admin: FC = () => {
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = `Vista文案健檢_Email名單_${new Date().toISOString().split('T')[0]}.csv`
+    link.download = `Vista文案健檢_E-mail名單_${new Date().toISOString().split('T')[0]}.csv`
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -76,7 +76,7 @@ export const Admin: FC = () => {
   }
 
   const clearAllEmails = () => {
-    if (window.confirm('確定要清除所有 Email 記錄嗎？此操作無法復原！')) {
+    if (window.confirm('確定要清除所有 E-mail 記錄嗎？此操作無法復原！')) {
       localStorage.removeItem('collected_emails')
       setEmails([])
       alert('已清除所有記錄')
@@ -86,7 +86,7 @@ export const Admin: FC = () => {
   const copyEmailList = () => {
     const emailList = emails.map((e) => e.email).join('\n')
     navigator.clipboard.writeText(emailList)
-    alert('✓ Email 列表已複製到剪貼簿')
+    alert('✓ E-mail 列表已複製到剪貼簿')
   }
 
   if (!isAuthenticated) {
@@ -97,8 +97,8 @@ export const Admin: FC = () => {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-4">
               <span className="text-4xl">🔒</span>
             </div>
-            <h1 className="text-3xl font-bold text-neutral-800 mb-2">管理後台</h1>
-            <p className="text-neutral-600">輸入密碼以查看收集的 Email</p>
+            <h1 className="text-3xl font-bold text-neutral-800 mb-2">管理後臺</h1>
+            <p className="text-neutral-600">輸入密碼以查看收集的 E-mail</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
@@ -133,9 +133,9 @@ export const Admin: FC = () => {
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-neutral-800 mb-2">📧 Email 管理後台</h1>
+              <h1 className="text-3xl font-bold text-neutral-800 mb-2">📧 E-mail 管理後臺</h1>
               <p className="text-neutral-600">
-                已收集 <span className="font-bold text-primary">{emails.length}</span> 個 Email
+                已收集 <span className="font-bold text-primary">{emails.length}</span> 個 E-mail
               </p>
             </div>
             <div className="flex gap-3">
@@ -156,8 +156,8 @@ export const Admin: FC = () => {
         {emails.length === 0 ? (
           <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
             <div className="text-6xl mb-4">📭</div>
-            <h3 className="text-xl font-bold text-neutral-800 mb-2">尚無收集到的 Email</h3>
-            <p className="text-neutral-600">當有使用者填寫 Email 後，會顯示在這裡</p>
+            <h3 className="text-xl font-bold text-neutral-800 mb-2">尚無收集到的 E-mail</h3>
+            <p className="text-neutral-600">當有使用者填寫 E-mail 後，會顯示在這裡</p>
           </div>
         ) : (
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
@@ -166,7 +166,7 @@ export const Admin: FC = () => {
                 <thead className="bg-neutral-100 border-b-2 border-neutral-300">
                   <tr>
                     <th className="px-6 py-4 text-left text-sm font-bold text-neutral-800">#</th>
-                    <th className="px-6 py-4 text-left text-sm font-bold text-neutral-800">Email</th>
+                    <th className="px-6 py-4 text-left text-sm font-bold text-neutral-800">E-mail</th>
                     <th className="px-6 py-4 text-left text-sm font-bold text-neutral-800">來源</th>
                     <th className="px-6 py-4 text-left text-sm font-bold text-neutral-800">分數</th>
                     <th className="px-6 py-4 text-left text-sm font-bold text-neutral-800">時間</th>
@@ -219,7 +219,7 @@ export const Admin: FC = () => {
             <span>使用說明</span>
           </h3>
           <ul className="text-sm text-blue-800 space-y-2">
-            <li>• <strong>複製列表：</strong>快速複製所有 Email 地址</li>
+            <li>• <strong>複製列表：</strong>快速複製所有 E-mail 地址</li>
             <li>• <strong>匯出 CSV：</strong>下載完整資料表格，可用 Excel 開啟</li>
             <li>• <strong>資料儲存：</strong>目前資料儲存在瀏覽器 localStorage，建議定期匯出備份</li>
             <li>• <strong>長期方案：</strong>建議整合 Google Sheets API 或 Mailchimp 自動同步</li>

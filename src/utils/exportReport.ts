@@ -186,7 +186,7 @@ export async function exportToPDF(result: AnalysisResult): Promise<void> {
       font-size: 18px;
       font-weight: bold;
     `
-    loadingEl.textContent = '正在生成 PDF，請稍候...'
+    loadingEl.textContent = '正在生成 PDF，請稍候⋯⋯'
     document.body.appendChild(loadingEl)
 
     // 使用 html2canvas 截圖

@@ -63,7 +63,7 @@ function analyzeFAB(text: string): DimensionScore {
     feedback.push(`✓ ${fabRules.rules.advantage.scoring.message.success}`)
   } else {
     feedback.push(`⚠️ ${fabRules.rules.advantage.scoring.message.warning}`)
-    suggestions.push('建議：說明與競品的差異，例如「獨家」、「唯一」、「比...更好」')
+    suggestions.push('建議：說明與競品的差異，例如「獨家」、「唯一」、「比⋯⋯更好」')
   }
 
   // 檢查 Benefit（效益）- 最重要！
@@ -76,7 +76,7 @@ function analyzeFAB(text: string): DimensionScore {
     feedback.push(`✓ ${fabRules.rules.benefit.scoring.message.success}`)
   } else {
     feedback.push(`🚨 ${fabRules.rules.benefit.scoring.message.critical}`)
-    suggestions.push('建議：用「讓您...」、「幫您...」說明對顧客的具體好處')
+    suggestions.push('建議：用「讓您⋯⋯」、「幫您⋯⋯」說明對顧客的具體好處')
     suggestions.push('記住：Features tell, but benefits sell（功能告知，利益才賣）')
   }
 

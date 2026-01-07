@@ -36,7 +36,7 @@ export const EmailCollector: FC<EmailCollectorProps> = ({
     setError('')
 
     if (!validateEmail(email)) {
-      setError('請輸入有效的 Email 地址')
+      setError('請輸入有效的 E-mail 地址')
       return
     }
 
@@ -97,7 +97,7 @@ export const EmailCollector: FC<EmailCollectorProps> = ({
             </div>
             <h3 className="text-2xl font-bold text-neutral-800 mb-2">感謝您的訂閱！</h3>
             <p className="text-neutral-600 leading-relaxed mb-4">
-              我們已將您的 Email 記錄下來。以下是您的專屬贈品連結：
+              我們已將您的 E-mail 記錄下來。以下是您的專屬贈品連結：
             </p>
           </div>
 
@@ -180,7 +180,7 @@ export const EmailCollector: FC<EmailCollectorProps> = ({
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="email" className="block text-sm font-semibold text-neutral-700 mb-2">
-              Email 地址
+              E-mail 地址
             </label>
             <input
               type="email"
@@ -203,7 +203,7 @@ export const EmailCollector: FC<EmailCollectorProps> = ({
             {isSubmitting ? (
               <>
                 <span className="animate-spin">⏳</span>
-                <span>處理中...</span>
+                <span>處理中⋯⋯</span>
               </>
             ) : (
               <>

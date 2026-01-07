@@ -13,7 +13,7 @@ export const Admin: FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   // 簡單的密碼保護（實際應用應該用後端驗證）
-  const ADMIN_PASSWORD = 'vista2026' // 請修改為您自己的密碼
+  const ADMIN_PASSWORD = 'Lute1230!'
 
   useEffect(() => {
     if (isAuthenticated) {

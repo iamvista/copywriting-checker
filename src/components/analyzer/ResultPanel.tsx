@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react'
+import { FC, useMemo, useState } from 'react'
 import { AnalysisResult } from '@/types/analyzer.types'
 import { ScoreCard } from '../common/ScoreCard'
 import { DimensionDetail } from '../common/DimensionDetail'
@@ -14,6 +14,7 @@ import {
   trackWritingProgramEmail,
   trackReanalyze,
 } from '@/utils/analytics'
+import { copyToClipboard, generateShareText } from '@/utils/shareUtils'
 
 interface ResultPanelProps {
   result: AnalysisResult
@@ -29,9 +30,22 @@ const GRADE_CONFIG = {
 
 export const ResultPanel: FC<ResultPanelProps> = ({ result, onReset }) => {
   const gradeInfo = GRADE_CONFIG[result.grade]
+  const [copySuccess, setCopySuccess] = useState(false)
 
   // 隨機選取4條文案心法（使用 useMemo 確保每次結果顯示時只選一次）
   const randomWisdom = useMemo(() => getRandomWisdom(4), [result.timestamp])
+
+  // 處理複製結果摘要
+  const handleCopyResult = async () => {
+    const text = generateShareText(result)
+    const success = await copyToClipboard(text)
+
+    if (success) {
+      setCopySuccess(true)
+      trackSocialShare('copy', result.totalScore)
+      setTimeout(() => setCopySuccess(false), 3000)
+    }
+  }
 
   // 產生社群分享文案（病毒行銷優化版）
   const getShareText = (platform: 'default' | 'threads') => {
@@ -187,11 +201,19 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                   <FaXTwitter className="text-lg" />
                 </button>
                 <button
-                  onClick={() => handleShare('copy')}
-                  className="p-3 bg-white hover:bg-warning hover:text-white rounded-lg transition-all shadow-sm border border-neutral-stone flex items-center justify-center w-12 h-12"
-                  title="複製分享連結"
+                  onClick={handleCopyResult}
+                  className={`p-3 rounded-lg transition-all shadow-sm border flex items-center justify-center w-12 h-12 ${
+                    copySuccess
+                      ? 'bg-green-500 text-white border-green-600'
+                      : 'bg-white hover:bg-warning hover:text-white border-neutral-stone'
+                  }`}
+                  title={copySuccess ? '已複製！' : '複製結果摘要'}
                 >
-                  <FiCopy className="text-lg" />
+                  {copySuccess ? (
+                    <span className="text-lg">✓</span>
+                  ) : (
+                    <FiCopy className="text-lg" />
+                  )}
                 </button>
               </div>
             </div>

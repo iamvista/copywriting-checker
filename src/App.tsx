@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import { Header } from './components/layout/Header'
 import { Hero } from './components/layout/Hero'
+import { BeforeAfter } from './components/layout/BeforeAfter'
 import { AnalyzerPanel } from './components/analyzer/AnalyzerPanel'
 import { ResultPanel } from './components/analyzer/ResultPanel'
 import { Privacy } from './pages/Privacy'
@@ -20,16 +21,19 @@ const App: FC = () => {
   }
 
   const HomePage = () => (
-    <main className="container mx-auto px-4 py-8 max-w-4xl">
-      {!analysisResult ? (
-        <>
-          <Hero />
-          <AnalyzerPanel onAnalysisComplete={handleAnalysisComplete} />
-        </>
-      ) : (
-        <ResultPanel result={analysisResult} onReset={handleReset} />
-      )}
-    </main>
+    <>
+      <main className="container mx-auto px-4 py-8 max-w-4xl">
+        {!analysisResult ? (
+          <>
+            <Hero />
+            <AnalyzerPanel onAnalysisComplete={handleAnalysisComplete} />
+          </>
+        ) : (
+          <ResultPanel result={analysisResult} onReset={handleReset} />
+        )}
+      </main>
+      {!analysisResult && <BeforeAfter />}
+    </>
   )
 
   return (

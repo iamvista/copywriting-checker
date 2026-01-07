@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 import { AnalysisResult } from '@/types/analyzer.types'
 import { analyzeCopywriting } from '@/services/analyzer'
 import { EXAMPLE_COPIES, MAX_TEXT_LENGTH, MIN_TEXT_LENGTH } from '@/utils/constants'
@@ -8,10 +8,50 @@ interface AnalyzerPanelProps {
   onAnalysisComplete: (result: AnalysisResult) => void
 }
 
+const ANALYSIS_STEPS = [
+  '解析文案結構...',
+  '評估標題吸引力...',
+  '分析消費者洞察...',
+  '檢查行動呼籲...',
+  '計算可讀性分數...',
+  '生成改善建議...',
+]
+
 export const AnalyzerPanel: FC<AnalyzerPanelProps> = ({ onAnalysisComplete }) => {
   const [text, setText] = useState('')
   const [isAnalyzing, setIsAnalyzing] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [currentStep, setCurrentStep] = useState(0)
+  const [progress, setProgress] = useState(0)
+
+  // 模擬分析進度
+  useEffect(() => {
+    if (!isAnalyzing) {
+      setProgress(0)
+      setCurrentStep(0)
+      return
+    }
+
+    const stepDuration = 800 // 每個步驟 800ms
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 95) return prev
+        return prev + 5
+      })
+    }, stepDuration / 20)
+
+    const stepInterval = setInterval(() => {
+      setCurrentStep((prev) => {
+        if (prev >= ANALYSIS_STEPS.length - 1) return prev
+        return prev + 1
+      })
+    }, stepDuration)
+
+    return () => {
+      clearInterval(progressInterval)
+      clearInterval(stepInterval)
+    }
+  }, [isAnalyzing])
 
   const handleAnalyze = async () => {
     if (text.length < MIN_TEXT_LENGTH) {
@@ -129,9 +169,46 @@ export const AnalyzerPanel: FC<AnalyzerPanelProps> = ({ onAnalysisComplete }) =>
       </div>
 
       {isAnalyzing && (
-        <p className="text-sm text-gray-600 mt-4">
-          分析需要約 5-10 秒，請稍候...
-        </p>
+        <div className="mt-6 p-6 bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg border border-primary/20">
+          <div className="mb-4">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-semibold text-primary">分析進度</span>
+              <span className="text-sm font-bold text-primary">{Math.round(progress)}%</span>
+            </div>
+            <div className="w-full bg-neutral-200 rounded-full h-3 overflow-hidden">
+              <div
+                className="bg-gradient-to-r from-primary to-primary-dark h-full rounded-full transition-all duration-300 ease-out"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            {ANALYSIS_STEPS.map((step, index) => (
+              <div
+                key={index}
+                className={`flex items-center gap-3 text-sm transition-all duration-300 ${
+                  index <= currentStep ? 'opacity-100' : 'opacity-30'
+                }`}
+              >
+                {index < currentStep ? (
+                  <span className="text-green-500 text-lg">✓</span>
+                ) : index === currentStep ? (
+                  <span className="text-primary animate-pulse text-lg">●</span>
+                ) : (
+                  <span className="text-neutral-400 text-lg">○</span>
+                )}
+                <span className={index <= currentStep ? 'text-neutral-800 font-medium' : 'text-neutral-500'}>
+                  {step}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-xs text-neutral-600 mt-4 text-center">
+            分析需要約 5-10 秒，請稍候...
+          </p>
+        </div>
       )}
     </div>
   )

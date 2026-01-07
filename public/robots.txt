@@ -1,0 +1,11 @@
+# Robots.txt for Vista Copywriting Checker
+# 允許所有搜尋引擎爬取
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://copywriting-checker.vercel.app/sitemap.xml
+
+# 優化爬取
+Crawl-delay: 1

@@ -93,7 +93,7 @@ export const Privacy: FC = () => {
 
             <section>
               <h2 className="text-xl font-bold text-neutral-800 mb-3">6. 您的權利</h2>
-              <p className="mb-2">根據台灣《個人資料保護法》，您享有以下權利：</p>
+              <p className="mb-2">根據臺灣《個人資料保護法》，您享有以下權利：</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li><strong>查詢或請求閱覽</strong>：您可要求查詢我們持有的您的個人資料。</li>
                 <li><strong>請求製給複製本</strong>：您可要求提供個人資料副本。</li>
@@ -147,7 +147,7 @@ export const Privacy: FC = () => {
 
             <section className="border-t-2 border-neutral-200 pt-6 mt-8">
               <p className="text-sm text-neutral-500">
-                本隱私權政策符合台灣《個人資料保護法》及相關法規要求。
+                本隱私權政策符合臺灣《個人資料保護法》及相關法規要求。
                 使用本工具即表示您同意本政策的內容。
               </p>
             </section>

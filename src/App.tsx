@@ -5,6 +5,8 @@ import { Hero } from './components/layout/Hero'
 import { BeforeAfter } from './components/layout/BeforeAfter'
 import { AnalyzerPanel } from './components/analyzer/AnalyzerPanel'
 import { ResultPanel } from './components/analyzer/ResultPanel'
+import { HistoryPanel } from './components/history/HistoryPanel'
+import { ScoreTrendChart } from './components/history/ScoreTrendChart'
 import { Privacy } from './pages/Privacy'
 import { FAQ } from './pages/FAQ'
 import { AnalysisResult } from './types/analyzer.types'
@@ -27,6 +29,16 @@ const App: FC = () => {
           <>
             <Hero />
             <AnalyzerPanel onAnalysisComplete={handleAnalysisComplete} />
+
+            {/* 分數趨勢圖表 */}
+            <div className="mt-16">
+              <ScoreTrendChart />
+            </div>
+
+            {/* 歷史記錄面板 */}
+            <div className="mt-8">
+              <HistoryPanel onSelectHistory={setAnalysisResult} />
+            </div>
           </>
         ) : (
           <ResultPanel result={analysisResult} onReset={handleReset} />

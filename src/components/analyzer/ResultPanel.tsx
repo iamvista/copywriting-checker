@@ -974,7 +974,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
             📄 匯出 Markdown
           </button>
           <button
-            onClick={() => exportToPDF(result.totalScore)}
+            onClick={() => exportToPDF(result)}
             className="btn-secondary"
           >
             📑 匯出 PDF

@@ -3,6 +3,7 @@ import { AnalysisResult } from '@/types/analyzer.types'
 import { analyzeCopywriting } from '@/services/analyzer'
 import { EXAMPLE_COPIES, MAX_TEXT_LENGTH, MIN_TEXT_LENGTH } from '@/utils/constants'
 import { trackAnalysisComplete } from '@/utils/analytics'
+import { saveToHistory } from '@/utils/historyManager'
 
 interface AnalyzerPanelProps {
   onAnalysisComplete: (result: AnalysisResult) => void
@@ -83,10 +84,27 @@ export const AnalyzerPanel: FC<AnalyzerPanelProps> = ({ onAnalysisComplete }) =>
         textLength: text.length,
       })
 
+      // 儲存到歷史記錄
+      saveToHistory(result)
+
       onAnalysisComplete(result)
     } catch (err) {
-      setError('分析遇到問題，請稍後再試')
-      console.error(err)
+      console.error('Analysis error:', err)
+
+      // 更詳細的錯誤訊息
+      if (!navigator.onLine) {
+        setError('❌ 網路連線中斷，請檢查您的網路連線後重試')
+      } else if (err instanceof Error) {
+        if (err.message.includes('timeout')) {
+          setError('⏱️ 分析逾時，請稍後再試或嘗試分析較短的文案')
+        } else if (err.message.includes('API') || err.message.includes('401') || err.message.includes('403')) {
+          setError('🔑 API 認證失敗，請聯繫技術支援')
+        } else {
+          setError(`⚠️ 分析遇到問題：${err.message}`)
+        }
+      } else {
+        setError('❌ 分析遇到未知問題，請重試或聯繫技術支援')
+      }
     } finally {
       setIsAnalyzing(false)
     }
@@ -127,8 +145,25 @@ export const AnalyzerPanel: FC<AnalyzerPanelProps> = ({ onAnalysisComplete }) =>
       </div>
 
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4">
-          {error}
+        <div className="bg-red-50 border-2 border-red-200 rounded-lg mb-4 p-4">
+          <div className="flex items-start gap-3">
+            <div className="flex-1">
+              <p className="text-red-800 font-semibold mb-2">{error}</p>
+              <p className="text-sm text-red-600">
+                若問題持續發生，請聯繫技術支援：
+                <a href="mailto:iamvista@gmail.com" className="underline ml-1">
+                  iamvista@gmail.com
+                </a>
+              </p>
+            </div>
+            <button
+              onClick={handleAnalyze}
+              disabled={charCount < MIN_TEXT_LENGTH || charCount > MAX_TEXT_LENGTH}
+              className="btn-secondary text-sm whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              🔄 重試
+            </button>
+          </div>
         </div>
       )}
 

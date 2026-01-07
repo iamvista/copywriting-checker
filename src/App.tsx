@@ -34,7 +34,7 @@ const App: FC = () => {
       <footer className="bg-neutral-charcoal text-neutral-sand py-8 mt-16 border-t-4 border-primary">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm mb-2">
-            Powered by <a href="https://www.empower.tw" target="_blank" rel="noopener noreferrer" className="text-primary-light hover:text-primary font-semibold transition-colors">Vista Cheng</a>
+            Powered by <a href="https://www.vista.tw" target="_blank" rel="noopener noreferrer" className="text-primary-light hover:text-primary font-semibold transition-colors">Vista Cheng</a>
           </p>
           <p className="text-xs text-neutral-stone">
             ©2026 Vista Cheng. All rights reserved.

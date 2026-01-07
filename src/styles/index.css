@@ -75,10 +75,19 @@
     color: black !important;
   }
 
-  /* Hide action buttons and navigation */
-  button,
-  a[href*="empower.tw"] {
+  /* Hide action buttons but keep footer links */
+  button {
     display: none !important;
+  }
+
+  /* Show footer in print */
+  footer {
+    display: block !important;
+  }
+
+  footer a {
+    color: #2563eb !important;
+    text-decoration: underline !important;
   }
 
   /* Optimize cards for print */

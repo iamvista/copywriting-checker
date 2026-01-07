@@ -53,16 +53,8 @@ const App: FC = () => {
 
   const handleEmailSubmit = (email: string) => {
     console.log('Email collected:', email)
-    setShowEmailCollector(false)
-
-    // 根據類型執行不同操作
-    if (emailCollectorType === 'pdf') {
-      // PDF 下載邏輯在這裡處理
-      alert('感謝您！PDF 下載即將開始...')
-    } else {
-      // Exit Intent 感謝訊息
-      alert('感謝訂閱！我們會將實用的文案技巧發送到您的信箱 📧')
-    }
+    // 不要在這裡關閉彈窗！讓 EmailCollector 顯示成功畫面
+    // EmailCollector 會顯示成功畫面 + 下載按鈕
   }
 
   const handleEmailCollectorClose = () => {

@@ -115,6 +115,7 @@ export const EmailCollector: FC<EmailCollectorProps> = ({
               href={downloadLink}
               target="_blank"
               rel="noopener noreferrer"
+              download={downloadLink.startsWith('/') || downloadLink.startsWith('https://copywriting.vista.tw') ? 'Vista文案工具贈品.pdf' : undefined}
               className="block w-full btn-primary text-center"
             >
               📥 立即下載 PDF

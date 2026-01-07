@@ -7,6 +7,13 @@ import { getRandomWisdom } from '@/utils/copywritingWisdom'
 import { FaFacebookF, FaXTwitter, FaLine } from 'react-icons/fa6'
 import { SiThreads } from 'react-icons/si'
 import { FiCopy } from 'react-icons/fi'
+import {
+  trackSocialShare,
+  trackFreeCourseCTA,
+  trackPaidCourseCTA,
+  trackWritingProgramEmail,
+  trackReanalyze,
+} from '@/utils/analytics'
 
 interface ResultPanelProps {
   result: AnalysisResult
@@ -82,6 +89,9 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
   const shareUrl = typeof window !== 'undefined' ? window.location.origin : 'https://copywriting-checker.vercel.app'
 
   const handleShare = (platform: 'facebook' | 'twitter' | 'line' | 'threads' | 'copy') => {
+    // GA4 事件追蹤：社群分享
+    trackSocialShare(platform, result.totalScore)
+
     const encodedUrl = encodeURIComponent(shareUrl)
 
     switch (platform) {
@@ -332,6 +342,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                   href="https://www.skool.com/vista-8077/classroom/cac1e425?md=f59b10fe1ebf46e2bff817c6f045f582"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackFreeCourseCTA(result.totalScore)}
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-warning to-primary text-white text-lg font-bold rounded-xl hover:from-warning-dark hover:to-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   <span>🎓</span>
@@ -465,6 +476,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                     href="https://www.worker360.com.tw/video/DiT000413"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackPaidCourseCTA(result.totalScore)}
                     className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-accent-teal text-white text-lg font-bold rounded-xl hover:from-primary-dark hover:to-accent-teal transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     <span>📖</span>
@@ -628,6 +640,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
 
                 <a
                   href="mailto:iamvista@gmail.com?subject=詢問「Vista寫作陪伴計畫」&body=你好，我在文案健檢工具得到 {result.totalScore} 分，想了解「Vista寫作陪伴計畫」的詳細資訊。%0D%0A%0D%0A我的需求：%0D%0A"
+                  onClick={() => trackWritingProgramEmail(result.totalScore)}
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-success to-primary text-white text-lg font-bold rounded-xl hover:from-success-dark hover:to-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   <span>📧</span>
@@ -951,7 +964,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
       {/* Actions */}
       <div className="card-section border-l-info bg-neutral-100">
         <div className="flex flex-wrap gap-4 justify-center">
-          <button onClick={onReset} className="btn-primary">
+          <button onClick={() => { trackReanalyze(); onReset(); }} className="btn-primary">
             🔍 重新分析
           </button>
           <button
@@ -961,7 +974,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
             📄 匯出 Markdown
           </button>
           <button
-            onClick={exportToPDF}
+            onClick={() => exportToPDF(result.totalScore)}
             className="btn-secondary"
           >
             📑 匯出 PDF

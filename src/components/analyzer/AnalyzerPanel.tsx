@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 import { AnalysisResult } from '@/types/analyzer.types'
 import { analyzeCopywriting } from '@/services/analyzer'
 import { EXAMPLE_COPIES, MAX_TEXT_LENGTH, MIN_TEXT_LENGTH } from '@/utils/constants'
+import { trackAnalysisComplete } from '@/utils/analytics'
 
 interface AnalyzerPanelProps {
   onAnalysisComplete: (result: AnalysisResult) => void
@@ -28,6 +29,20 @@ export const AnalyzerPanel: FC<AnalyzerPanelProps> = ({ onAnalysisComplete }) =>
 
     try {
       const result = await analyzeCopywriting(text)
+
+      // GA4 事件追蹤：分析完成
+      trackAnalysisComplete({
+        totalScore: result.totalScore,
+        fabScore: result.dimensions.fab.score,
+        titleScore: result.dimensions.titleAppeal.score,
+        consumerInsightScore: result.dimensions.consumerInsight.score,
+        ctaScore: result.dimensions.callToAction.score,
+        readabilityScore: result.dimensions.readability.score,
+        valuePropositionScore: result.dimensions.valueProposition.score,
+        grade: result.grade,
+        textLength: text.length,
+      })
+
       onAnalysisComplete(result)
     } catch (err) {
       setError('分析遇到問題，請稍後再試')

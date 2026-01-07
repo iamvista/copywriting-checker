@@ -1,9 +1,13 @@
 import { AnalysisResult } from '@/types/analyzer.types'
+import { trackPDFExport, trackMarkdownExport } from '@/utils/analytics'
 
 /**
  * 匯出為 Markdown 格式
  */
 export function exportToMarkdown(result: AnalysisResult): void {
+  // GA4 事件追蹤：Markdown 匯出
+  trackMarkdownExport(result.totalScore)
+
   const { totalScore, grade, summary, dimensions, analyzedText, timestamp } = result
 
   const gradeLabels = {
@@ -151,7 +155,10 @@ ${dimensions.valueProposition.suggestions.length > 0 ? `**改善建議：**\n${d
 /**
  * 匯出為 PDF 格式（使用瀏覽器列印功能）
  */
-export function exportToPDF(): void {
+export function exportToPDF(score: number): void {
+  // GA4 事件追蹤：PDF 匯出
+  trackPDFExport(score)
+
   // 暫存原始標題
   const originalTitle = document.title
 

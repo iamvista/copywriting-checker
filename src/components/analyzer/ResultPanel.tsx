@@ -171,15 +171,15 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
 
             {/* 下載完整報告按鈕 */}
             {onRequestPDF && (
-              <div className="flex-shrink-0 w-full lg:w-auto mb-6">
+              <div className="flex-shrink-0 w-full lg:w-64">
                 <button
                   onClick={onRequestPDF}
                   className="w-full btn-primary flex items-center justify-center gap-2 py-4 text-base font-bold shadow-lg hover:shadow-xl transition-all"
                 >
                   <span className="text-2xl">📥</span>
-                  <span>下載完整分析報告</span>
+                  <span className="leading-tight">下載完整分析報告</span>
                 </button>
-                <p className="text-xs text-neutral-500 text-center mt-2">
+                <p className="text-xs text-neutral-500 text-center mt-2 leading-relaxed px-2">
                   留下 E-mail，免費獲取「Vista 文案轉換優化模型」專業框架
                 </p>
               </div>

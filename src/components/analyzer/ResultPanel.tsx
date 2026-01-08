@@ -154,13 +154,32 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
         {/* Score Display - 橫向版面更適合長文案 */}
         <div className="bg-gradient-to-r from-white to-neutral-cream/50 rounded-lg border-2 border-neutral-sand p-6 mb-6">
           <div className="flex flex-col lg:flex-row gap-6 items-start">
-            {/* 分數與等級 */}
-            <div className={`flex-shrink-0 ${gradeInfo.bgColor} ${gradeInfo.borderColor} border-2 rounded-lg p-6 text-center w-full lg:w-48`}>
-              <div className="text-4xl mb-2">{gradeInfo.emoji}</div>
-              <div className="text-5xl font-bold text-primary mb-1">{result.totalScore}</div>
-              <div className={`text-base font-semibold ${gradeInfo.color} uppercase tracking-wide`}>
-                {gradeInfo.label}
+            {/* 左側：分數與下載按鈕 */}
+            <div className="flex-shrink-0 w-full lg:w-64 space-y-4">
+              {/* 分數與等級 */}
+              <div className={`${gradeInfo.bgColor} ${gradeInfo.borderColor} border-2 rounded-lg p-6 text-center`}>
+                <div className="text-4xl mb-2">{gradeInfo.emoji}</div>
+                <div className="text-5xl font-bold text-primary mb-1">{result.totalScore}</div>
+                <div className={`text-base font-semibold ${gradeInfo.color} uppercase tracking-wide`}>
+                  {gradeInfo.label}
+                </div>
               </div>
+
+              {/* 免費下載檢查表按鈕 */}
+              {onRequestPDF && (
+                <div>
+                  <button
+                    onClick={onRequestPDF}
+                    className="w-full btn-primary flex items-center justify-center gap-2 py-4 text-base font-bold shadow-lg hover:shadow-xl transition-all"
+                  >
+                    <span className="text-2xl">📥</span>
+                    <span className="leading-tight">免費下載檢查表</span>
+                  </button>
+                  <p className="text-xs text-neutral-500 text-center mt-2 leading-relaxed px-2">
+                    留下 E-mail，免費獲得「Vista 文案快速檢查表」
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* 分析的文案 */}
@@ -168,22 +187,6 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
               <p className="font-semibold text-primary mb-3 text-sm uppercase tracking-wide">分析的文案</p>
               <p className="whitespace-pre-wrap text-neutral-600 leading-relaxed text-sm lg:text-base">{result.analyzedText}</p>
             </div>
-
-            {/* 免費下載檢查表按鈕 */}
-            {onRequestPDF && (
-              <div className="flex-shrink-0 w-full lg:w-64">
-                <button
-                  onClick={onRequestPDF}
-                  className="w-full btn-primary flex items-center justify-center gap-2 py-4 text-base font-bold shadow-lg hover:shadow-xl transition-all"
-                >
-                  <span className="text-2xl">📥</span>
-                  <span className="leading-tight">免費下載檢查表</span>
-                </button>
-                <p className="text-xs text-neutral-500 text-center mt-2 leading-relaxed px-2">
-                  留下 E-mail，免費獲得「Vista 文案快速檢查表」
-                </p>
-              </div>
-            )}
 
             {/* Social Share - 改為側邊欄 */}
             <div className="flex-shrink-0 w-full lg:w-auto">

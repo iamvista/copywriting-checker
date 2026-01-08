@@ -180,7 +180,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                   <span className="leading-tight">下載完整分析報告</span>
                 </button>
                 <p className="text-xs text-neutral-500 text-center mt-2 leading-relaxed px-2">
-                  留下 E-mail，免費獲取「Vista 文案轉換優化模型」專業框架
+                  留下 E-mail，免費獲得「Vista 文案快速檢查表」
                 </p>
               </div>
             )}

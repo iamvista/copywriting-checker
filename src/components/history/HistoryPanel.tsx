@@ -179,7 +179,7 @@ export const HistoryPanel: FC<HistoryPanelProps> = ({ onSelectHistory }) => {
       </div>
 
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
-        💡 <strong>提示</strong>：點擊任一記錄即可查看完整分析報告
+        💡 <strong>提示</strong>：點擊任一記錄即可查看分析結果
       </div>
     </div>
   )

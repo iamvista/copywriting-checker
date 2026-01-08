@@ -169,7 +169,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
               <p className="whitespace-pre-wrap text-neutral-600 leading-relaxed text-sm lg:text-base">{result.analyzedText}</p>
             </div>
 
-            {/* 下載完整報告按鈕 */}
+            {/* 免費下載檢查表按鈕 */}
             {onRequestPDF && (
               <div className="flex-shrink-0 w-full lg:w-64">
                 <button
@@ -177,7 +177,7 @@ Vista 文案健檢工具不只打分數，還告訴你「具體怎麼改」，�
                   className="w-full btn-primary flex items-center justify-center gap-2 py-4 text-base font-bold shadow-lg hover:shadow-xl transition-all"
                 >
                   <span className="text-2xl">📥</span>
-                  <span className="leading-tight">下載完整分析報告</span>
+                  <span className="leading-tight">免費下載檢查表</span>
                 </button>
                 <p className="text-xs text-neutral-500 text-center mt-2 leading-relaxed px-2">
                   留下 E-mail，免費獲得「Vista 文案快速檢查表」

@@ -37,7 +37,7 @@ export const EXAMPLE_COPIES = [
 ]
 
 export const MIN_TEXT_LENGTH = 20
-export const MAX_TEXT_LENGTH = 3000
+export const MAX_TEXT_LENGTH = 5000
 
 export const SCORE_THRESHOLDS = {
   EXCELLENT: 80,

@@ -30,3 +30,7 @@ dist-ssr
 
 # Claude
 CLAUDE.local.md
+
+# 編輯器／手動備份，不進版控（2026-07-31：6 個 .bak 曾被追蹤，
+# 其中 readability 那份留著舊的破折號規則，造成同一條規則兩個版本並存）
+*.bak
